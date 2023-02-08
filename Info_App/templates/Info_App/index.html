@@ -1,0 +1,218 @@
+{% extends 'Info_App/base/base.html' %}
+{% block content %}
+{% load static %}
+
+<section class="wrapper">
+    <div class="container-fostrap">
+        {% comment %} <div>
+            <img src="data:image/jpeg;base64,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" class="fostrap-logo"/>
+            <h1 class="heading">
+                Nagpur Branch Directory 
+            </h1>
+        </div> {% endcomment %}
+        {% comment %} <div style="position:absolute;right:115px;top:70px">
+        <a href="{% url 'Info_App:pdf_report_create'%}"><button class="btn btn-primary" type="" >Create PDF</button></a>
+        </div>    {% endcomment %}
+        
+
+
+      {% if all_info %}
+        <div class="content">
+            <div class="container" >
+              
+                <div class="row">
+                  
+                  {% for i in page_obj.object_list %}
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="card" style="200px">
+                          <div class="card-read-more ">
+                            <div class="row">
+                              <div class="col-2 pt-1">
+                                <span><b>{{forloop.counter0|add:page_obj.start_index}}</b></span>
+                              </div>
+                              <div class="col-10" style="text-align:left">
+                                <a href="" class="btn btn-link btn-block" style="text-transform: uppercase;font-size:12px;">
+                                   <b>CA {{ i.member_lastname }}{{ i.member_firstname }}</b>
+                                </a>
+                              </div>
+                              </div>
+                            </div>
+                            <div class="row pt-2">
+                            <div class="col-3 pl-4 pb-4">
+                            
+                           <div class="img-card"  style="border-top-right-radius: 25px;border-bottom-left-radius: 25px">
+                            {% if i.photo == '' %}
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO6AKY7TBvygcrXFS5JtwUpPT6mVwRxhP7XQ&usqp=CAU"  >
+                            {% else %}
+                              <img src="{{i.photo}}">
+                            {% endif %}
+                            </div>
+                            <div class="row pt-2" style="margin-bottom:-12px;text-align:left">
+                                <div class="col-sm-6" >
+                                <h6 class="card-title" style="padding-left:12px;font-size:11px">Mem No:</h6>
+                                </div>
+                                <div class="col-sm-6">
+                                <p style="font-size:11px">{{ i.membership_number }}</p>
+                              </div>
+                            </div>
+                            <div class="row" style="margin-bottom:-12px;text-align:left">
+                                <div class="col-6">
+                                <h6 class="card-title" style="padding-left:12px;font-size:11px">Mem Yr:</h6>
+                                </div>
+                                <div class="col-6">
+                                <p style="font-size:11px">{{ i.year_of_membership }}</p>
+                              </div>
+                              </div>
+                              
+                        </div>
+                          <div class=" col-9">
+                            <div class="card-content" >
+                              <div class="row" style="margin-bottom:-12px">
+                                <div class="col-sm-2">
+                                <h6 class="card-title" style="font-size:11px">Firm/Orgn :</h6>
+                                </div>
+                                <div class="col-sm-10">
+                                <p style="font-size:11px">{{ i.organization }} </p>
+                              </div>
+                              </div>
+                              <div class="row" style="margin-bottom:-12px">
+                                <div class="col-sm-2">
+                                <h6 class="card-title" style="font-size:11px">proof Add :</h6>
+                                </div>
+                                <div class="col-sm-10">
+                                <p style="font-size:11px">{{ i.proof_address }} {{i.proof_area}} {{i.proof_city}}-{{i.proof_pin_code}}</p>
+                              </div>
+                              </div>
+                              <div class="row" style="margin-bottom:-12px">
+                                <div class="col-sm-2">
+                                <h6 class="card-title" style="font-size:11px">Res Add :</h6>
+                                </div>
+                                <div class="col-sm-10">
+                                <p style="font-size:11px">{{ i.residential_address }} {{i.residential_area}} {{i.residential_city}}-{{i.residential_pin_code}}</p>
+                              </div>
+                              </div>
+                              
+                              <div class="row" style="margin-bottom:-12px">
+                                <div class="col-sm-2">
+                                <h6 class="card-title" style="font-size:11px">Mobile No. :</h6>
+                                </div>
+                                <div class="col-sm-10">
+                                <p style="font-size:11px">{{ i.Phone_number }}</p>
+                              </div>
+                              </div>
+                              <div class="row" style="margin-bottom:-12px">
+                                <div class="col-sm-2">
+                                <h6 class="card-title" style="font-size:11px">DOB :</h6>
+                                </div>
+                                <div class="col-sm-10">
+                                <p style="font-size:11px">{{ i.DOB }}</p>
+                              </div>
+                              </div> 
+                              <div class="row" style="margin-bottom:-12px">
+                                <div class="col-sm-2">
+                                <h6 class="card-title" style="font-size:11px">Blood Grp :</h6>
+                                </div>
+                                <div class="col-sm-10">
+                                <p style="font-size:11px">{{i.blood_group}}</p>
+                              </div>
+                              </div>
+                              <div class="row" style="margin-bottom:-12px">
+                                <div class="col-sm-2">
+                                <h6 class="card-title" style="font-size:11px">DOM :</h6>
+                                </div>
+                                <div class="col-sm-10">
+                                <p style="font-size:11px">{{ i.DOM }}</p>
+                              </div>
+                              </div>
+                              <div class="row" style="margin-bottom:-12px">
+                                <div class="col-sm-2">
+                                <h6 class="card-title" style="font-size:11px">Email :</h6>
+                                </div>
+                                <div class="col-sm-10">
+                                <p style="font-size:11px">{{ i.email_id }}</p>
+                              </div>
+                              </div>
+                              
+                            </div>
+                          </div>
+                          </div>
+                            
+                        </div>
+                    </div>
+                  {% endfor %}
+                  
+                    
+                    
+                </div>
+
+                
+            </div>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br>
+        <form>
+          <input type="button" value="Print" onclick="window.print();" id="print"/>
+        </form>       
+
+        
+    <!-- Pagination -->
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+        {%if page_obj.has_previous %} 
+          <li class="page-item"><a class="page-link" href="/?page= 
+          {{page_obj.previous_page_number}}">Previous</a></li>
+        {% endif %}
+          <li class="page-item"><a class="page-link" href="/?page=1">1</a></li>
+          <li class="page-item"><a class="page-link" href="/?page=2">2</a></li>
+          <li class="page-item"><a class="page-link" href="/?page=3">3</a></li>
+          {% comment %} <li class="page-item"><a class="page-link" href="#">{{page_obj.number}}</a></li> {% endcomment %}
+        {%if page_obj.has_next %}
+          <li class="page-item"><a class="page-link" href="/?page= 
+          {{page_obj.next_page_number}}">Next</a></li>
+        {% endif %}
+        </ul>
+      </nav> 
+
+  
+
+    {% else %}
+    
+    <div class="container">
+    <div class="row d-flex justify-content-center pt-4" >
+      <div class="card-columns d-flex justify-content-center" >
+        <div class="card bg-light">
+          <div class="card-body text-center">
+            <p class="card-text p-5">No Data Found</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    {% endif %}
+
+  </div>
+</section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+{% comment %} <script>
+  function printDocument(documentId) {
+  var doc = document.getElementById(documentId);
+
+  //Wait until PDF is ready to print    
+  if (typeof doc.print === 'undefined') {    
+      setTimeout(function(){printDocument(documentId);}, 1000);
+  } else {
+      doc.print();
+  }
+}
+</script> {% endcomment %}
+{% comment %} <script type="text/javascript">
+  function print_page() {
+      var ButtonControl = document.getElementById("btnprint");
+      ButtonControl.style.visibility = "hidden";
+      window.print();
+      ButtonControl.style.visibility = "visible";
+  
+  } {% endcomment %}
+</script>
+{% endblock content %}

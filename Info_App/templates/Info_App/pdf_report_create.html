@@ -1,0 +1,163 @@
+{% extends 'Info_App/base/base.html' %}
+
+{% block content %}
+{% load static %}
+
+<section class="wrapper">
+    <div class="container-fostrap">
+      {% if all_info %}
+        <div class="content">
+            <div class="container" >
+              
+                <div class="row">
+                  
+                  {% for i in all_info %}
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="card">
+                          <div class="card-read-more ">
+                            <div class="row">
+                              <div class="col-2 pt-1">
+                                <span><b>{{forloop.counter}}</b></span>
+                              </div>
+                              <div class="col-10" style="text-align:left">
+                                <a href="" class="btn btn-link btn-block" style="text-transform: uppercase;font-size:12px;">
+                                   <b>CA {{ i.member_lastname }}{{ i.member_firstname }}</b>
+                                </a>
+                              </div>
+                              </div>
+                            </div>
+                            <div class="row pt-2">
+                            <div class="col-3 pl-4 pb-4">
+                            
+                           <div class="img-card"  style="border-top-right-radius: 25px;border-bottom-left-radius: 25px">
+                            {% if i.photo == '' %}
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO6AKY7TBvygcrXFS5JtwUpPT6mVwRxhP7XQ&usqp=CAU"  >
+                              {% else %}
+                              <img src="{{i.photo}}"  >
+                            {% endif %}
+                            </div>
+                            <div class="row pt-2" style="margin-bottom:-12px;text-align:left">
+                                <div class="col-sm-6" >
+                                <h6 class="card-title" style="padding-left:12px;font-size:11px">Mem No:</h6>
+                                </div>
+                                <div class="col-sm-6">
+                                <p style="font-size:11px">{{ i.membership_number }}</p>
+                              </div>
+                            </div>
+                            <div class="row" style="margin-bottom:-12px;text-align:left">
+                                <div class="col-6">
+                                <h6 class="card-title" style="padding-left:12px;font-size:11px">Mem Yr:</h6>
+                                </div>
+                                <div class="col-6">
+                                <p style="font-size:11px">{{ i.year_of_membership }}</p>
+                              </div>
+                              </div>
+                              
+                        </div>
+                          <div class=" col-9">
+                            <div class="card-content" >
+                              <div class="row" style="margin-bottom:-12px">
+                                <div class="col-sm-2">
+                                <h6 class="card-title" style="font-size:11px">Firm/Orgn :</h6>
+                                </div>
+                                <div class="col-sm-10">
+                                <p style="font-size:11px">{{ i.organization }} </p>
+                              </div>
+                              </div>
+                              <div class="row" style="margin-bottom:-12px">
+                                <div class="col-sm-2">
+                                <h6 class="card-title" style="font-size:11px">proof Add :</h6>
+                                </div>
+                                <div class="col-sm-10">
+                                <p style="font-size:11px">{{ i.proof_address }} {{i.proof_area}} {{i.proof_city}}-{{i.proof_pin_code}}</p>
+                              </div>
+                              </div>
+                              <div class="row" style="margin-bottom:-12px">
+                                <div class="col-sm-2">
+                                <h6 class="card-title" style="font-size:11px">Res Add :</h6>
+                                </div>
+                                <div class="col-sm-10">
+                                <p style="font-size:11px">{{ i.residential_address }} {{i.residential_area}} {{i.residential_city}}-{{i.residential_pin_code}}</p>
+                              </div>
+                              </div>
+                              
+                              <div class="row" style="margin-bottom:-12px">
+                                <div class="col-sm-2">
+                                <h6 class="card-title" style="font-size:11px">Mobile No. :</h6>
+                                </div>
+                                <div class="col-sm-10">
+                                <p style="font-size:11px">{{ i.Phone_number }}</p>
+                              </div>
+                              </div>
+                              <div class="row" style="margin-bottom:-12px">
+                                <div class="col-sm-2">
+                                <h6 class="card-title" style="font-size:11px">DOB :</h6>
+                                </div>
+                                <div class="col-sm-10">
+                                <p style="font-size:11px">{{ i.DOB }}</p>
+                              </div>
+                              </div> 
+                              <div class="row" style="margin-bottom:-12px">
+                                <div class="col-sm-2">
+                                <h6 class="card-title" style="font-size:11px">Blood Grp :</h6>
+                                </div>
+                                <div class="col-sm-10">
+                                <p style="font-size:11px">{{i.blood_group}}</p>
+                              </div>
+                              </div>
+                              <div class="row" style="margin-bottom:-12px">
+                                <div class="col-sm-2">
+                                <h6 class="card-title" style="font-size:11px">DOM :</h6>
+                                </div>
+                                <div class="col-sm-10">
+                                <p style="font-size:11px">{{ i.DOM }}</p>
+                              </div>
+                              </div>
+                              <div class="row" style="margin-bottom:-12px">
+                                <div class="col-sm-2">
+                                <h6 class="card-title" style="font-size:11px">Email :</h6>
+                                </div>
+                                <div class="col-sm-10">
+                                <p style="font-size:11px">{{ i.email_id }}</p>
+                              </div>
+                              </div>
+                              
+                            </div>
+                          </div>
+                          </div>
+                            
+                        </div>
+                    </div>
+                  {% endfor %}
+                  
+                    
+                    
+                </div>
+
+                
+            </div>
+        </div>
+        <br>
+        
+   
+    {% else %}
+    
+    <div class="container">
+    <div class="row d-flex justify-content-center pt-4" >
+      <div class="card-columns d-flex justify-content-center" >
+        <div class="card bg-light">
+          <div class="card-body text-center">
+            <p class="card-text p-5">No Data Found</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    {% endif %}
+
+  </div>
+</section>
+
+
+{% endblock content %}

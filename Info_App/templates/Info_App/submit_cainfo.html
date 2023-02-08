@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>  </head>
+  
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+  .formbold-mb-3 {
+    margin-bottom: 15px;
+  }
+  .formbold-relative {
+    position: relative;
+  }
+  .formbold-opacity-0 {
+    opacity: 0;
+  }
+  .formbold-stroke-current {
+    stroke: currentColor;
+  }
+  #supportCheckbox:checked ~ div span {
+    opacity: 1;
+  }
+
+  .formbold-main-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+  }
+
+  .formbold-form-wrapper {
+    margin: 0 auto;
+    max-width: 1000px;
+    width: 100%;
+    background: white;
+    padding: 20px;
+  }
+
+  .formbold-form-title {
+    margin-bottom: 30px;
+  }
+  .formbold-form-title h2 {
+    font-weight: 900;
+    font-size: 28px;
+    line-height: 34px;
+    color: #07074d;
+  }
+  .formbold-form-title p {
+    font-size: 16px;
+    line-height: 24px;
+    color: #536387;
+    margin-top: 12px;
+  }
+
+  .formbold-input-flex {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+  }
+  .formbold-input-flex > div {
+    width: 50%;
+  }
+  .formbold-form-input {
+    text-align: center;
+    width: 100%;
+    padding: 13px 22px;
+    border-radius: 5px;
+    border: 1px solid #dde3ec;
+    background: #ffffff;
+    font-weight: 500;
+    font-size: 16px;
+    color: #536387;
+    outline: none;
+    resize: none;
+  }
+  .formbold-form-input:focus {
+    border-color: #6a64f1;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+  }
+  .formbold-form-label {
+    color: #536387;
+    font-size: 14px;
+    line-height: 24px;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .formbold-checkbox-label {
+    display: flex;
+    cursor: pointer;
+    user-select: none;
+    font-size: 16px;
+    line-height: 24px;
+    color: #536387;
+  }
+  .formbold-checkbox-label a {
+    margin-left: 5px;
+    color: #6a64f1;
+  }
+  .formbold-input-checkbox {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  .formbold-checkbox-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin-right: 16px;
+    margin-top: 2px;
+    border: 0.7px solid #dde3ec;
+    border-radius: 3px;
+  }
+
+  .formbold-btn {
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 14px 25px;
+    border: none;
+    font-weight: 500;
+    background-color: #6a64f1;
+    color: white;
+    cursor: pointer;
+    margin-top: 25px;
+  }
+  .formbold-btn:hover {
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+  }
+
+{% comment %} remove number button {% endcomment %}
+  input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input.plholder[placeholder] {
+  color: gray !important;
+  font-size:16px
+}
+
+</style>
+  <body>
+<div class="formbold-main-wrapper">
+  <!-- Author: FormBold Team -->
+  <!-- Learn More: https://formbold.com -->
+  <div class="formbold-form-wrapper" >
+
+    {% comment %} <div class="row ">
+			<div class="col-12 mb-2 " style="text-align:center">
+				{%for message in messages %}
+					<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+						<strong>Messages : </strong>{{ message }}
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+				{% endfor %}
+			</div>
+		</div> {% endcomment %}
+    
+
+
+    <div class="formbold-form-title">
+      <h2 >ICAI Member Details Form</h2>
+      <p>Please Enter Your Details:</p>
+    </div>
+
+    <div class="formbold-input-flex"> 
+    <form action="" id="ca_form" method="POST" >{% csrf_token %}
+      
+      <hr style="margin-left:200px"><h5 style="margin-top:-30px">Personal Information</h5><br>
+      <div class="formbold-input-flex">
+        <div>
+          <label for="member_firstname" class="formbold-form-label">First name</label>
+          <input type="text" name="member_firstname" id="member_firstname" class="formbold-form-input" />
+        </div>
+        <div>
+          <label for="member_middlename" class="formbold-form-label">Middle name</label>
+          <input type="text" name="member_middlename" id="member_middlename" class="formbold-form-input" />
+        </div>
+        <div>
+          <label for="member_lastname" class="formbold-form-label"> Last name </label>
+          <input type="text" name="member_lastname" id="member_lastname" class="formbold-form-input" />
+        </div> 
+      </div>
+
+      <div class="formbold-input-flex">
+        <div>
+          <label for="membership_number" class="formbold-form-label" > Membership Number </label>
+            <input type="number" name="membership_number" id="membership_number" disabled class="formbold-form-input" value={{membership_number}} />
+          </div>
+        <div>
+          <label for="year_of_membership" class="formbold-form-label"> Membership Year </label>
+          <input type="number"  name="year_of_membership" id="year_of_membership"  class="formbold-form-input" />
+        </div>
+      </div>
+
+      <div class="formbold-input-flex">
+        <div>
+          <label for="DOB" class="formbold-form-label">Date Of Birth </label>
+          <input type="date" name="DOB" id="DOB" class="formbold-form-input plholder" placeholder="DD-MM-YYYY"/>
+        </div>
+        <div>
+          <label for="DOM" class="formbold-form-label"> Date Of Marriage </label>
+          <input type="date" name="DOM" id="DOM" class="formbold-form-input plholder" placeholder="DD-MM-YYYY" />
+        </div>
+        <div>
+          <label for="blood_group" class="formbold-form-label">Blood Group </label>
+          {% comment %} <input type="text" name="blood_group" id="blood_group" class="formbold-form-input" /> {% endcomment %}
+
+        <select type="text" name="blood_group" id="blood_group" class="formbold-form-input" >
+          <option style="text-align:left" value="A+" selected>A+</option>
+          <option style="text-align:left" value="A-">A-</option>
+          <option style="text-align:left" value="B+">B+</option>
+          <option style="text-align:left" value="B-">B-</option>
+          <option style="text-align:left" value="O+">O+</option>
+          <option style="text-align:left" value="O-">O-</option>
+          <option style="text-align:left" value="AB+">AB+</option>
+          <option style="text-align:left" value="AB-">AB-</option>
+        </select>
+        </div>
+      </div>
+
+      <div class="formbold-mb-3">
+        <label for="residential_address" class="formbold-form-label"> Residential Address</label>
+        <input type="text" name="residential_address" id="residential_address" class="formbold-form-input" />
+      </div>
+
+      <div class="formbold-input-flex">
+        <div>
+          <label for="residential_area" class="formbold-form-label"> Area </label>
+          <input type="text" name="residential_area" id="residential_area" class="formbold-form-input"/>
+        </div>
+        <div>
+          <label for="residential_city" class="formbold-form-label"> City</label>
+          <input type="text" name="residential_city" id="residential_city" class="formbold-form-input" />
+        </div>
+       <div>
+          <label for="residential_pin_code" class="formbold-form-label"> Zip code </label>
+          <input type="number"   name="residential_pin_code" id="residential_pin_code" class="formbold-form-input" />
+        </div>  
+      </div>
+      <div class="formbold-input-flex">
+        <div>
+        <label for="holding_COP" class="formbold-form-label" style="padding-bottom:10px"> Do You Hold A Certificate Of Practice? </label>
+        <label class="radio-inline">
+            <input type="radio" id="holding_COP"  name="holding_COP" value="Yes" checked> Yes
+        </label>
+        <label class="radio-inline" style="margin-left:20px">
+            <input type="radio" id="holding_COP" name="holding_COP" value="No"> No
+        </label>
+       
+        </div>
+        <div style="border: none;">
+          <label for="photo" class="formbold-form-label"> Photo </label>
+          <input type="file" name="photo" id="photo" class="formbold-form-input" style="font-size:14px;"/>
+        </div>
+      </div> 
+    <br><hr style="margin-left:234px"><h5 style="margin-top:-30px">Professional Information</h5><br>
+      <div class="formbold-mb-3">
+        <label for="Organization" class="formbold-form-label">Organization Name</label>
+        <input type="text" name="organization" id="organization" class="formbold-form-input" />
+      </div>
+
+      <div class="formbold-input-flex">
+        <div>
+          <label for="email_id" class="formbold-form-label"> Email ID </label>
+          <input type="email" name="email_id" id="email_id" class="formbold-form-input" />
+        </div>
+        <div>
+          <label for="Phone_number" class="formbold-form-label"> Phone number </label>
+          <input type="number"   name="Phone_number" id="Phone_number" class="formbold-form-input" />
+        </div>
+      </div>
+
+      <div class="formbold-mb-3">
+        <label for="prof_address" class="formbold-form-label">Professional Address </label>
+        <input type="text" name="prof_address" id="prof_address" class="formbold-form-input"/>
+      </div>
+
+      <div class="formbold-input-flex">
+        <div>
+          <label for="prof_area" class="formbold-form-label"> Area </label>
+          <input type="text" name="prof_area" id="prof_area" class="formbold-form-input" />
+        </div>
+        <div>
+          <label for="prof_city" class="formbold-form-label"> City </label>
+          <input type="text" name="prof_city" id="prof_city" class="formbold-form-input" />
+        </div>
+       <div>
+          <label for="prof_pin_code" class="formbold-form-label"> Zip code </label>
+          <input type="number"   name="prof_pin_code" id="prof_pin_code" class="formbold-form-input" />
+        </div>
+      </div>
+      <div id="append_corr_add" style="display:none">
+        <br><hr style="margin-left:350px"><h5 style="margin-top:-30px">Correspondence Address Of Nagpur</h5><br>
+
+      <div class="formbold-mb-3">
+        <label for="corr_prof_address" class="formbold-form-label"> Address In Nagpur</label>
+        <input type="text" name="corr_prof_address" id="corr_prof_address" class="formbold-form-input"/>
+      </div>
+
+      <div class="formbold-input-flex">
+        <div>
+          <label for="corr_prof_area" class="formbold-form-label"> Area </label>
+          <input type="text" name="corr_prof_area" id="corr_prof_area" class="formbold-form-input" />
+        </div>
+        <div>
+          <label for="corr_prof_city" class="formbold-form-label"> City </label>
+          <input type="text" name="corr_prof_city" id="corr_prof_city" class="formbold-form-input" />
+        </div>
+       <div>
+          <label for="corr_prof_pin_code" class="formbold-form-label"> Zip code </label>
+          <input type="number"   name="corr_prof_pin_code" id="corr_prof_pin_code" class="formbold-form-input" />
+        </div>
+      </div>
+      </div>
+
+     
+
+      <button type="submit" class="formbold-btn" style="font-size:23px"><b>Submit Info</b></button>
+    </form>
+  </div>
+</div>
+
+
+<script>
+  $( document ).ready(function() {
+    let member_number=$('#membership_number').val();
+    let result = member_number.toString().padStart(6, '0')
+    $("input#membership_number").val(result);
+ });
+</script>
+<!--Validate membership num-->
+{% comment %} <script>
+   $(document).on('submit','#validate_no',function(e){
+            e.preventDefault();
+            var member_number=$('#membership_number').val();
+
+              
+            if (membership_number == '') {
+                alert("Please Enter ")
+              }else if(isNaN(Phone_number Membership Number)){
+                 alert("insert a number");
+            }else{
+                    $.ajax({
+                        type:'POST',
+                        url: '{% url "Info_App:validate_no" %}',
+                        data:{ 
+                                    membership_number:$('#membership_number').val(), 
+                                    csrfmiddlewaretoken : $('input[name = csrfmiddlewaretoken]').val()
+                        },
+                        success:function(response){ 
+                            if(response.message == 'validate successfully'){
+                              alert('Validate Successfully'); 
+                              $("#membership_number").hide();
+                              $("#ca_form").show();
+                              submitinfo=response.submitinfo; 
+                              
+
+                            }else if(response.message == 'Membership Number already exist')
+                              alert('Membership Number Already Exist');
+                            else{
+                                alert('unable to submit information');
+                            }    
+                        }
+
+                    });
+          }//else end
+        });
+      </script> {% endcomment %}
+
+
+
+<!--correspondence address hide and show conditions-->
+<script>
+  $('input#prof_city').on('change',function(e){
+    if ($("input#prof_city").val().includes('Nagpur') || $("input#prof_city").val().includes('NAGPUR') || $("input#prof_city").val().includes('nagpur')) {
+      $("#append_corr_add").hide();
+    }else{
+      $("#append_corr_add").show();
+    }
+   }); 
+</script>
+
+
+<!--submit form using ajax-->
+<script>
+$(document).ready(function(){ 
+  $(document).on('submit','#ca_form',function(e){
+            e.preventDefault();
+            var member_firstname=$('#member_firstname').val();
+            var member_middlename=$('#member_middlename').val();
+            var member_lastname=$('#member_lastname').val();
+            var organization=$('#organization').val();
+            var year_of_membership=$('#year_of_membership').val();
+            var member_number=$('#membership_number').val();
+            var prof_address=$('#prof_address').val();
+            var prof_area=$('#prof_area').val();
+            var prof_city=$('#prof_city').val();
+            var prof_pin_code=$('#prof_pin_code').val();
+            var DOB=$('#DOB').val();
+            var DOM=$('#DOM').val();
+            var blood_group=$('#blood_group').val();
+            var residential_address=$('#residential_address').val();
+            var residential_area=$('#residential_area').val();
+            var residential_city=$('#residential_city').val();
+            var residential_pin_code=$('#residential_pin_code').val();
+            var email_id=$('#email_id').val();
+            var Phone_number=$('#Phone_number').val();
+            var holding_COP=$('#holding_COP').val();
+            var photo=$('#photo').val();
+              
+            if (member_firstname == ''|| member_middlename == '' || member_lastname == '' || organization == ''|| membership_number == ''|| year_of_membership == ''|| prof_address == ''
+            || prof_area == ''|| prof_city == ''|| prof_pin_code == ''|| DOB == ''|| DOM == ''|| blood_group == '' || residential_address=='' || residential_area==''
+            || residential_city == ''|| residential_pin_code == ''|| email_id == ''|| Phone_number == ''|| holding_COP == ''|| photo == '') {
+                alert("Please fill all fields")
+              }else if(isNaN(Phone_number)){
+                 alert("insert a number");
+            }else if((Phone_number.charAt(0)!=9) && (Phone_number.charAt(0)!=8) && (Phone_number.charAt(0)!=7)){
+                alert('Mobile number must start with 9 ,8 ,7 or 6');
+            }else if(Phone_number.length!==10){
+                alert('Please put 10  digit mobile number');
+            }else if(prof_pin_code.length!=6 || residential_pin_code.length!=6){
+              alert('Please Enter 6 digit pin code');
+            }else{
+                    $.ajax({
+                        type:'POST',
+                        url: '{% url "Info_App:submit_cainfo" %}',
+                        data:{ 
+                                    member_firstname:$('#member_firstname').val(),
+                                    member_middlename:$('#member_middlename').val(),
+                                    member_lastname:$('#member_lastname').val(),
+                                    organization:$('#organization').val(),
+                                    membership_number:$('#membership_number').val(),
+                                    year_of_membership:$('#year_of_membership').val(),
+                                    prof_address:$('#prof_address').val(),
+                                    prof_area:$('#prof_area').val(),
+                                    prof_city:$('#prof_city').val(),
+                                    prof_pin_code:$('#prof_pin_code').val(),
+                                    DOB:$('#DOB').val(),
+                                    DOM:$('#DOM').val(),
+                                    blood_group:$('#blood_group').val(),
+                                    residential_address:$('#residential_address').val(),
+                                    residential_area:$('#residential_area').val(),
+                                    residential_city:$('#residential_city').val(),
+                                    residential_pin_code:$('#residential_pin_code').val(),                                    
+                                    corr_prof_address:$('#corr_prof_address').val(),
+                                    corr_prof_area:$('#corr_prof_area').val(),
+                                    corr_prof_city:$('#corr_prof_city').val(),
+                                    corr_prof_pin_code:$('#corr_prof_pin_code').val(),
+                                    email_id:$('#email_id').val(),
+                                    Phone_number:$('#Phone_number').val(),
+                                    holding_COP:$('#holding_COP').val(),
+                                    photo:$('#photo').val(), 
+                                    csrfmiddlewaretoken : $('input[name = csrfmiddlewaretoken]').val()
+                        },
+                        success:function(response){ 
+                            if(response.message == 'submit successfully'){
+                              alert('submit information'); 
+                              document.getElementById("ca_form").reset();
+                              $("#append_corr_add").hide();
+                              submitinfo=response.submitinfo; 
+                              
+
+                            }else if(response.message == 'Membership Number already exist')
+                              alert('Membership Number Already Exist');
+                            else{
+                                alert('unable to submit information');
+                            }    
+                        }
+
+                    });
+          }//else end
+        });
+      
+  });
+   </script>
+
+  </body>
+</html>

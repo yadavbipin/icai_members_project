@@ -1,0 +1,24 @@
+
+<br>
+ <center>
+   <input class="btn btn-primary justify-content-center" id="hide_print" type="button" value="print news" onclick="myFunction()"/>
+</center>
+
+
+<!--print button onclick function-->
+<script>
+function myFunction() {
+  //Get the print button and put it into a variable
+        var printButton = document.getElementById("hide_print");
+        //Set the print button visibility to 'hidden' 
+        printButton.style.visibility = 'hidden';
+        //Print the page content
+        window.print()
+        printButton.style.visibility = 'visible';
+}
+</script>
+<script>
+<script>
+
+</body>
+</html>
