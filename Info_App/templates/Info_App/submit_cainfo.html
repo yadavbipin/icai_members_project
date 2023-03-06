@@ -538,6 +538,16 @@ $("#view_details").click(function(){
     var email_id=$('#email_id').val();
     var Phone_number=$('#Phone_number').val();
     var holding_COP=$('#holding_COP').val();
+    // Add events
+    $('input[type=file]').on('change', prepareUpload);
+
+    // Grab the files and set them to our variable
+    function prepareUpload(event)
+    {
+      files = event.target.files;
+    }
+
+
     if (member_firstname == ''|| member_middlename == '' || member_lastname == '' || organization == ''|| membership_number == ''|| year_of_membership == ''|| prof_address == ''
                 || prof_area == ''|| prof_city == ''|| prof_pin_code == ''|| DOB == ''|| DOM == ''|| blood_group == '' || residential_address=='' || residential_area==''
                 || residential_city == ''|| residential_pin_code == ''|| email_id == ''|| Phone_number == ''|| holding_COP == ''|| photo == '') {
