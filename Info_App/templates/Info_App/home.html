@@ -20,7 +20,7 @@
                       <img src="{%static 'Info_App/images/CA_logo.png'%}" height="40px" width="40px">
                     </div>
                     <div class="col-4 mt-2">       
-                      <b class="p-1" style="color:white;text-transform: uppercase; border:3px solid white;font-size:16px;">Members in Practice</b>                          
+                      <b class="p-1" style="color:white;text-transform: uppercase; border:3px solid white;font-size:16px;">Members in Service</b>                          
                     </div>
                     <div class="col-5 mt-2 " style="padding-left:80px"> 
                       {%if i.member_lastname == '' %}
@@ -44,16 +44,16 @@
 
 
 
-            <div class="col-12 " >
-              <div class="card mt-1" style="font-family: Times New Roman;font-weight:700" >
+            <div class="col-12 "  >
+              <div class="card mt-1" style="font-family: Calibri;font-weight:700" >
                 <div class="card-read-more ">
                   <div class="row p-2" style="background-color:#251749;margin-left:0px;margin-right:-1px;text-align:left">
-                    <div class="col-1 " style="color:white;font-size:14px;">
+                    <div class="col-1 " style="color:white;font-size:16px;">
                       <span><b>{{forloop.counter}}</b></span>
                     </div>
                     <div class="col-11" style="">
-                      <span  class="" style="text-transform: uppercase;font-size:14px;">
-                        <b style="color:white">CA  {{ i.member_lastname }} {{ i.member_firstname }}</b>
+                      <span  class="" style="text-transform: uppercase;font-size:16px;">
+                        <b style="color:white"><span class="mr-2" style="text-transform: uppercase;font-size:16px;">CA.</span>{{ i.member_lastname }} {{ i.member_firstname }} {{i.member_middlename}}</b>
                       </span>
                     </div>
                   </div>
@@ -71,125 +71,125 @@
                   <div class="col-5" >
                     <div class="row"  style="text-align:left;margin-bottom:-15px">
                       <div class="col-lg-2 col-sm-3" >
-                        <h6 class="card-title" style="font-size:14px;">Mem No</h6>
+                        <h6 class="card-title" style="font-size:16px;">Mem No</h6>
                       </div>
                       <div class="col-1 ">
-                        <h6 class="card-title" style="font-size:14px">:</h6>
+                        <h6 class="card-title" style="font-size:16px">:</h6>
                       </div>
                       <div class="col-lg-9 col-sm-8">
-                        <p style="font-size:14px;color:#413F42">{{i.membership_number}}</p>
+                        <p style="font-size:16px;color:#413F42">{{i.membership_number}}</p>
                       </div>
                     </div>
                     <div class="row" style="text-align:left;margin-bottom:-15px">
                       <div class="col-lg-2 col-sm-3">
-                        <h6 class="card-title" style="font-size:14px">Mem Yr</h6>
+                        <h6 class="card-title" style="font-size:16px">Mem Yr</h6>
                       </div>
                       <div class="col-1">
-                        <h6 class="card-title" style="font-size:14px">:</h6>
+                        <h6 class="card-title" style="font-size:16px">:</h6>
                       </div>
                       <div class="col-lg-9 col-sm-8">
-                        <p style="font-size:14px;color:#413F42">{{i.year_of_membership}}</p>
+                        <p style="font-size:16px;color:#413F42">{{i.year_of_membership}}</p>
                       </div>
                     </div>
                     <div class="row"  style="text-align:left;margin-bottom:-15px">
                       <div class="col-lg-2 col-sm-3" >
-                        <h6 class="card-title" style="font-size:14px">Firm</h6>
+                        <h6 class="card-title" style="font-size:16px">Firm</h6>
                       </div>
                       <div class="col-1">
-                        <h6 class="card-title" style="font-size:14px">:</h6>
+                        <h6 class="card-title" style="font-size:16px">:</h6>
                       </div>
                       <div class="col-lg-9 col-sm-8">
-                        <p style="font-size:14px;color:#413F42">{{i.organization}}</p>
+                        <p style="font-size:16px;color:#413F42">{{i.organization}}</p>
                       </div>
                     </div>
                     {% comment %} <div class="row"  style="text-align:left;margin-bottom:-15px">
                       <div class="col-2" >
-                        <h6 class="card-title" style="font-size:14px">COP</h6>
+                        <h6 class="card-title" style="font-size:16px">COP</h6>
                       </div>
                       <div class="col-1">
-                        <h6 class="card-title" style="font-size:14px">:</h6>
+                        <h6 class="card-title" style="font-size:16px">:</h6>
                       </div>
                       <div class="col-lg-9 col-sm-8">
-                        <p style="font-size:14px">{{i.holding_COP}}</p>
+                        <p style="font-size:16px">{{i.holding_COP}}</p>
                       </div>
                     </div> {% endcomment %}
                     <div class="row"  style="text-align:left;margin-bottom:-15px">
                       <div class="col-lg-2 col-sm-3" >
-                        <h6 class="card-title" style="font-size:14px">P.Add</h6>
+                        <h6 class="card-title" style="font-size:16px">P.Add</h6>
                       </div>
                       <div class="col-1">
-                        <h6 class="card-title" style="font-size:14px">:</h6>
+                        <h6 class="card-title" style="font-size:16px">:</h6>
                       </div>
                       <div class="col-lg-9 col-sm-8 link">
-                        <p style="font-size:14px;color:#413F42">{{i.prof_address }} {{i.prof_area}} {{i.prof_city}}-{{i.prof_pin_code}}</p>
+                        <p style="font-size:16px;color:#413F42">{{i.prof_address }} {{i.prof_area}} {{i.prof_city}}-{{i.prof_pin_code}}</p>
                       </div>
                     </div>
                     <div class="row"  style="text-align:left;margin-bottom:-15px">
                       <div class="col-lg-2 col-sm-3" >
-                        <h6 class="card-title" style="font-size:14px">Ph.No.</h6>
+                        <h6 class="card-title" style="font-size:16px">Ph.No.</h6>
                       </div>
                       <div class="col-1">
-                        <h6 class="card-title" style="font-size:14px">:</h6>
+                        <h6 class="card-title" style="font-size:16px">:</h6>
                       </div>
                       <div class="col-lg-9 col-sm-8">
-                        <b><p style="font-size:14px;color:#413F42">{{i.Phone_number}}</p></b>
+                        <b><p style="font-size:16px;color:#413F42">{{i.Phone_number}}</p></b>
                       </div>
                     </div>
                   </div>
                   <div class="col-5">    
                     <div class="row" style="text-align:left;margin-bottom:-15px">
                       <div class="col-lg-2 col-sm-3">
-                        <h6 class="card-title" style="font-size:14px">DOB</h6>
+                        <h6 class="card-title" style="font-size:16px">DOB</h6>
                       </div>
                       <div class="col-1">
-                        <h6 class="card-title" style="font-size:14px">:</h6>
+                        <h6 class="card-title" style="font-size:16px">:</h6>
                       </div>
                       <div class="col-lg-9 col-sm-8">
-                        <p style="font-size:14px;color:#413F42">{{i.DOB|date:"M d"}}</p>
+                        <p style="font-size:16px;color:#413F42">{{i.DOB|date:"M d"}}</p>
                       </div>
                     </div>
                     <div class="row" style="text-align:left;margin-bottom:-15px">
                       <div class="col-lg-2 col-sm-3">
-                        <h6 class="card-title" style="font-size:14px">DOM</h6>
+                        <h6 class="card-title" style="font-size:16px">DOM</h6>
                       </div>
                       <div class="col-1">
-                        <h6 class="card-title" style="font-size:14px">:</h6>
+                        <h6 class="card-title" style="font-size:16px">:</h6>
                       </div>
                       <div class="col-lg-9 col-sm-8">
-                        <p style="font-size:14px;color:#413F42">{{i.DOM|date:'M d'}}</p>
+                        <p style="font-size:16px;color:#413F42">{{i.DOM|date:'M d'}}</p>
                       </div>
                     </div>
                     <div class="row" style="text-align:left;margin-bottom:-15px">
                       <div class="col-lg-2 col-sm-3">
-                        <h6 class="card-title" style="font-size:14px">Bld Gr</h6>
+                        <h6 class="card-title" style="font-size:16px">Bld Gr</h6>
                       </div>
                       <div class="col-1">
-                        <h6 class="card-title" style="font-size:14px">:</h6>
+                        <h6 class="card-title" style="font-size:16px">:</h6>
                       </div>
                       <div class="col-lg-9 col-sm-8">
-                        <p style="font-size:14px;color:#413F42">{{i.blood_group}}</p>
+                        <p style="font-size:16px;color:#413F42">{{i.blood_group}}</p>
                       </div>
                     </div>
                     <div class="row" style="text-align:left;margin-bottom:-15px">
                       <div class="col-lg-2 col-sm-3">
-                        <h6 class="card-title" style="font-size:14px">R. Add</h6>
+                        <h6 class="card-title" style="font-size:16px">R. Add</h6>
                       </div>
                       <div class="col-1">
-                        <h6 class="card-title" style="font-size:14px">:</h6>
+                        <h6 class="card-title" style="font-size:16px">:</h6>
                       </div>
                       <div class="col-lg-9 col-sm-8 link">
-                        <p style="font-size:14px;color:#413F42">{{i.residential_address}} {{i.residential_area}} {{i.residential_city}}-{{i.residential_pin_code}}</p>
+                        <p style="font-size:16px;color:#413F42">{{i.residential_address}} {{i.residential_area}} {{i.residential_city}}-{{i.residential_pin_code}}</p>
                       </div>
                     </div>
                     <div class="row"  style="text-align:left;margin-bottom:-15px">
                       <div class="col-lg-2 col-sm-3" >
-                        <h6 class="card-title" style="font-size:14px">Email</h6>
+                        <h6 class="card-title" style="font-size:16px">Email</h6>
                       </div>
                       <div class="col-1">
-                        <h6 class="card-title" style="font-size:14px">:</h6>
+                        <h6 class="card-title" style="font-size:16px">:</h6>
                       </div>
                       <div class="col-lg-9 col-sm-8">
-                        <b><p style="font-size:14px;color:#413F42">{{i.email_id}}</p></b>
+                        <b><p style="font-size:16px;color:#413F42">{{i.email_id}}</p></b>
                       </div>
                     </div>   
                   </div>
@@ -205,13 +205,13 @@
                 <div class="col-xs-12 col-sm-12">
                     <div class="row  p-2" style="background-color:#251749;text-align:left">
                         <div class="col-4">
-                            <b class="p-2" style="color:white;text-transform: uppercase;font-size:14px">Nagpur Branch of WIRC of ICAI</b>                          
+                            <b class="p-2" style="color:white;text-transform: uppercase;font-size:16px">Nagpur Branch of WIRC of ICAI</b>                          
                         </div>
                         <div class="col-4" style="text-align:center">     
-                            <b class="p-2" style="color:#251749;text-transform: uppercase;font-size:14px; border:3px solid white;margin-left:-60px;border-radius:50%;background-color:white">{{ forloop.counter}}</b>                          
+                            <b class="p-2" style="color:#251749;text-transform: uppercase;font-size:16px; border:3px solid white;margin-left:-60px;border-radius:50%;background-color:white">{{ forloop.counter}}</b>                          
                         </div>
                         <div class="col-4" style="text-align:right">
-                            <b class="p-2" style="color:white;text-transform: uppercase;font-size:14px;">Member's Directory</b>                          
+                            <b class="p-2" style="color:white;text-transform: uppercase;font-size:16px;">Member's Directory</b>                          
                         </div>     
                     </div>        
                 </div>
@@ -253,16 +253,16 @@
           <div class="col-xs-12 col-sm-12">
               <div class="row  p-2" style="background-color:#251749;text-align:left">
                   <div class="col-4">
-                      <b class="p-2" style="color:white;text-transform: uppercase;font-size:14px">Nagpur Branch of WIRC of ICAI</b>                          
+                      <b class="p-2" style="color:white;text-transform: uppercase;font-size:16px">Nagpur Branch of WIRC of ICAI</b>                          
                   </div>            
                   <div class="col-2"  style="text-align:right;">    
-                      <b class="p-2" style="color:#251749;text-transform: uppercase;font-size:14px; border:3px solid white;;border-radius:50%;background-color:white;margin-right:-42px" ><span class="foot_count"></span></b>                                             
+                      <b class="p-2" style="color:#251749;text-transform: uppercase;font-size:16px; border:3px solid white;;border-radius:50%;background-color:white;margin-right:-42px" ><span class="foot_count"></span></b>                                             
                   </div>
                   <div class="col-2" style="text-align:center;" >                       
-                      {% comment %} <b class="p-2" style="color:#251749;text-transform: uppercase;font-size:14px; border:3px solid white;;border-radius:50%;background-color:white;margin-left:-20px" ><span class="foot_count"></span></b>                                              {% endcomment %}
+                      {% comment %} <b class="p-2" style="color:#251749;text-transform: uppercase;font-size:16px; border:3px solid white;;border-radius:50%;background-color:white;margin-left:-20px" ><span class="foot_count"></span></b>                                              {% endcomment %}
                   </div>
                   <div class="col-4" style="text-align:right" >
-                      <b class="p-2"  style="color:white;text-transform: uppercase;font-size:14px;">Member's Directory</b>                          
+                      <b class="p-2"  style="color:white;text-transform: uppercase;font-size:16px;">Member's Directory</b>                          
                   </div>     
               </div>        
           </div>
@@ -270,20 +270,20 @@
       
   {% endif %}
   {% if forloop.last %} 
-    <div class="row divFooter ml-3 mr-3 mb-2 mt-4 " id="last_foot" style="width:100%;margin-top:950px">
+    <div class="row divFooter ml-3 mr-3 mb-2 mt-4 " id="last_foot" style="width:100%;">
           <div class="col-xs-12 col-sm-12">
               <div class="row  p-2" style="background-color:#251749;text-align:left">
                   <div class="col-4">
-                      <b class="p-2" style="color:white;text-transform: uppercase;font-size:14px">Nagpur Branch of WIRC of ICAI</b>                          
+                      <b class="p-2" style="color:white;text-transform: uppercase;font-size:16px">Nagpur Branch of WIRC of ICAI</b>                          
                   </div>            
                   <div class="col-2"  style="text-align:right;">    
-                      <b class="p-2" style="color:#251749;text-transform: uppercase;font-size:14px; border:3px solid white;;border-radius:50%;background-color:white;margin-right:-30px" ><span class="foot_count"></span></b>                                             
+                      <b class="p-2" style="color:#251749;text-transform: uppercase;font-size:16px; border:3px solid white;;border-radius:50%;background-color:white;margin-right:-30px" ><span class="foot_count"></span></b>                                             
                   </div>
                   <div class="col-2" style="text-align:center;" >                       
-                      {% comment %} <b class="p-2" style="color:#251749;text-transform: uppercase;font-size:14px; border:3px solid white;;border-radius:50%;background-color:white;margin-left:-20px" ><span class="foot_count"></span></b>                                              {% endcomment %}
+                      {% comment %} <b class="p-2" style="color:#251749;text-transform: uppercase;font-size:16px; border:3px solid white;;border-radius:50%;background-color:white;margin-left:-20px" ><span class="foot_count"></span></b>                                              {% endcomment %}
                   </div>
                   <div class="col-4" style="text-align:right" >
-                      <b class="p-2"  style="color:white;text-transform: uppercase;font-size:14px;">Member's Directory</b>                          
+                      <b class="p-2"  style="color:white;text-transform: uppercase;font-size:16px;">Member's Directory</b>                          
                   </div>     
               </div>        
           </div>
@@ -302,7 +302,7 @@
                <img src="{%static 'Info_App/images/CA_logo.png'%}" height="40px" width="40px">
              </div>
              <div class="col-4 mt-2">       
-               <b class="p-1" style="color:white;text-transform: uppercase; border:3px solid white;font-size:16px;">Members in Practice</b>                          
+               <b class="p-1" style="color:white;text-transform: uppercase; border:3px solid white;font-size:16px;">Members in Service</b>                          
              </div>
              <div class="col-5 mt-2 " style="padding-left:80px"> 
                {%if i.member_lastname == '' %}
@@ -325,7 +325,7 @@
                <img src="{%static 'Info_App/images/CA_logo.png'%}" height="40px" width="40px">
              </div>
              <div class="col-4 mt-2">       
-               <b class="p-1" style="color:white;text-transform: uppercase; border:3px solid white;font-size:16px;">Members in Practice</b>                          
+               <b class="p-1" style="color:white;text-transform: uppercase; border:3px solid white;font-size:16px;">Members in Service</b>                          
              </div>
              <div class="col-5 mt-2 " style="padding-left:80px"> 
                {%if i.member_lastname == '' %}

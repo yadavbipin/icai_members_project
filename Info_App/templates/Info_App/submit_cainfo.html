@@ -164,186 +164,336 @@ input.plholder[placeholder] {
 
 </style>
   <body>
-<div class="formbold-main-wrapper">
-  <!-- Author: FormBold Team -->
-  <!-- Learn More: https://formbold.com -->
-  <div class="formbold-form-wrapper" >
+  <div class="container">
+    <div class="row">
+    <div class="formbold-main-wrapper">
+      <!-- Author: FormBold Team -->
+      <div class="formbold-form-wrapper" >        
 
-    {% comment %} <div class="row ">
-			<div class="col-12 mb-2 " style="text-align:center">
-				{%for message in messages %}
-					<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-						<strong>Messages : </strong>{{ message }}
-						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-				{% endfor %}
-			</div>
-		</div> {% endcomment %}
-    
-
-
-    <div class="formbold-form-title">
-      <h2 >ICAI Member Details Form</h2>
-      <p>Please Enter Your Details:</p>
-    </div>
-
-    <div class="formbold-input-flex"> 
-    <form action="" id="ca_form" method="POST" >{% csrf_token %}
-      
-      <hr style="margin-left:200px"><h5 style="margin-top:-30px">Personal Information</h5><br>
-      <div class="formbold-input-flex">
-        <div>
-          <label for="member_firstname" class="formbold-form-label">First name</label>
-          <input type="text" name="member_firstname" id="member_firstname" class="formbold-form-input" />
+        <div class="formbold-form-title">
+          <h2 >ICAI Member Details Form</h2>
+          <p id="form_p">Please Enter Your Details:</p>
         </div>
-        <div>
-          <label for="member_middlename" class="formbold-form-label">Middle name</label>
-          <input type="text" name="member_middlename" id="member_middlename" class="formbold-form-input" />
-        </div>
-        <div>
-          <label for="member_lastname" class="formbold-form-label"> Last name </label>
-          <input type="text" name="member_lastname" id="member_lastname" class="formbold-form-input" />
-        </div> 
-      </div>
 
-      <div class="formbold-input-flex">
-        <div>
-          <label for="membership_number" class="formbold-form-label" > Membership Number </label>
-            <input type="number" name="membership_number" id="membership_number" disabled class="formbold-form-input" value={{membership_number}} />
+        <div class=""> 
+        <form action="" id="ca_form" method="POST" >{% csrf_token %}
+        <div class="card" id="form_card">
+          <div class="card-body">
+             
+            
+          <hr style="margin-left:200px"><h5 style="margin-top:-30px">Personal Information</h5><br>
+          <div class="formbold-input-flex">
+            <div>
+              <label for="member_firstname" class="formbold-form-label">First name</label>
+              <input type="text" name="member_firstname" id="member_firstname" class="formbold-form-input" />
+            </div>
+            <div>
+              <label for="member_middlename" class="formbold-form-label">Middle name</label>
+              <input type="text" name="member_middlename" id="member_middlename" class="formbold-form-input" />
+            </div>
+            <div>
+              <label for="member_lastname" class="formbold-form-label"> Last name </label>
+              <input type="text" name="member_lastname" id="member_lastname" class="formbold-form-input" />
+            </div> 
           </div>
-        <div>
-          <label for="year_of_membership" class="formbold-form-label"> Membership Year </label>
-          <input type="number"  name="year_of_membership" id="year_of_membership"  class="formbold-form-input" />
+
+          <div class="formbold-input-flex">
+            <div>
+              <label for="membership_number" class="formbold-form-label" > Membership Number </label>
+                <input type="number" name="membership_number" id="membership_number" disabled class="formbold-form-input" value="{{membership_num}}" />
+              </div>
+            <div>
+              <label for="year_of_membership" class="formbold-form-label"> Membership Year </label>
+              <input type="number"  name="year_of_membership" id="year_of_membership"  class="formbold-form-input" />
+            </div>
+          </div>
+
+          <div class="formbold-input-flex">
+            <div>
+              <label for="DOB" class="formbold-form-label">Date Of Birth </label>
+              <input type="date" name="DOB" id="DOB" class="formbold-form-input plholder" placeholder="DD-MM-YYYY"/>
+            </div>
+            <div>
+              <label for="DOM" class="formbold-form-label"> Date Of Marriage </label>
+              <input type="date" name="DOM" id="DOM" class="formbold-form-input plholder" placeholder="DD-MM-YYYY" />
+            </div>
+            <div>
+            <label for="blood_group" class="formbold-form-label">Blood Group </label>
+            <select type="text" name="blood_group" id="blood_group" class="formbold-form-input" >
+              <option style="text-align:left" value="A+" selected>A+</option>
+              <option style="text-align:left" value="A-">A-</option>
+              <option style="text-align:left" value="B+">B+</option>
+              <option style="text-align:left" value="B-">B-</option>
+              <option style="text-align:left" value="O+">O+</option>
+              <option style="text-align:left" value="O-">O-</option>
+              <option style="text-align:left" value="AB+">AB+</option>
+              <option style="text-align:left" value="AB-">AB-</option>
+            </select>
+            </div>
+          </div>
+
+          <div class="formbold-mb-3">
+            <label for="residential_address" class="formbold-form-label"> Residential Address</label>
+            <input type="text" name="residential_address" id="residential_address" class="formbold-form-input" />
+          </div>
+
+          <div class="formbold-input-flex">
+            <div>
+              <label for="residential_area" class="formbold-form-label"> Area </label>
+              <input type="text" name="residential_area" id="residential_area" class="formbold-form-input"/>
+            </div>
+            <div>
+              <label for="residential_city" class="formbold-form-label"> City</label>
+              <input type="text" name="residential_city" id="residential_city" class="formbold-form-input" />
+            </div>
+          <div>
+              <label for="residential_pin_code" class="formbold-form-label"> Zip code </label>
+              <input type="number"   name="residential_pin_code" id="residential_pin_code" class="formbold-form-input" />
+            </div>  
+          </div>
+          <div class="formbold-input-flex">
+            <div>
+            <label for="holding_COP" class="formbold-form-label" style="padding-bottom:10px"> Do You Hold A Certificate Of Practice? </label>
+            <label class="radio-inline">
+                <input type="radio" id="holding_COP"  name="holding_COP" value="Yes" checked> Yes
+            </label>
+            <label class="radio-inline" style="margin-left:20px">
+                <input type="radio" id="holding_COP" name="holding_COP" value="No"> No
+            </label>
+          
+            </div>
+            <div style="border: none;">
+              <label for="photo" class="formbold-form-label"> Photo </label>
+              <input type="file" name="photo" id="photo" class="formbold-form-input" style="font-size:14px;" />
+            </div>
+          </div> 
+        <br><hr style="margin-left:234px"><h5 style="margin-top:-30px">Professional Information</h5><br>
+          <div class="formbold-mb-3">
+            <label for="Organization" class="formbold-form-label">Organization Name</label>
+            <input type="text" name="organization" id="organization" class="formbold-form-input" />
+          </div>
+
+          <div class="formbold-input-flex">
+            <div>
+              <label for="email_id" class="formbold-form-label"> Email ID </label>
+              <input type="email" name="email_id" id="email_id" class="formbold-form-input" />
+            </div>
+            <div>
+              <label for="Phone_number" class="formbold-form-label"> Phone number </label>
+              <input type="number"   name="Phone_number" id="Phone_number" class="formbold-form-input" />
+            </div>
+          </div>
+
+          <div class="formbold-mb-3">
+            <label for="prof_address" class="formbold-form-label">Professional Address </label>
+            <input type="text" name="prof_address" id="prof_address" class="formbold-form-input"/>
+          </div>
+
+          <div class="formbold-input-flex">
+            <div>
+              <label for="prof_area" class="formbold-form-label"> Area </label>
+              <input type="text" name="prof_area" id="prof_area" class="formbold-form-input" />
+            </div>
+            <div>
+              <label for="prof_city" class="formbold-form-label"> City </label>
+              <input type="text" name="prof_city" id="prof_city" class="formbold-form-input" />
+            </div>
+          <div>
+              <label for="prof_pin_code" class="formbold-form-label"> Zip code </label>
+              <input type="number"   name="prof_pin_code" id="prof_pin_code" class="formbold-form-input" />
+            </div>
+          </div>
+
+        <!-- view Button  -->
+        <div class="form-group row text-right"style="float:right">
+          <div class="col" >
+            <button type="button" class="btn btn-primary btn-customized" id="view_details">View Detail</button>
+          </div>
+        </div>
         </div>
       </div>
+          {% comment %} <div id="append_corr_add" style="display:none">
+            <br><hr style="margin-left:350px"><h5 style="margin-top:-30px">Correspondence Address Of Nagpur</h5><br>
 
-      <div class="formbold-input-flex">
-        <div>
-          <label for="DOB" class="formbold-form-label">Date Of Birth </label>
-          <input type="date" name="DOB" id="DOB" class="formbold-form-input plholder" placeholder="DD-MM-YYYY"/>
-        </div>
-        <div>
-          <label for="DOM" class="formbold-form-label"> Date Of Marriage </label>
-          <input type="date" name="DOM" id="DOM" class="formbold-form-input plholder" placeholder="DD-MM-YYYY" />
-        </div>
-        <div>
-          <label for="blood_group" class="formbold-form-label">Blood Group </label>
-          {% comment %} <input type="text" name="blood_group" id="blood_group" class="formbold-form-input" /> {% endcomment %}
+          <div class="formbold-mb-3">
+            <label for="corr_prof_address" class="formbold-form-label"> Address In Nagpur</label>
+            <input type="text" name="corr_prof_address" id="corr_prof_address" class="formbold-form-input"/>
+          </div>
 
-        <select type="text" name="blood_group" id="blood_group" class="formbold-form-input" >
-          <option style="text-align:left" value="A+" selected>A+</option>
-          <option style="text-align:left" value="A-">A-</option>
-          <option style="text-align:left" value="B+">B+</option>
-          <option style="text-align:left" value="B-">B-</option>
-          <option style="text-align:left" value="O+">O+</option>
-          <option style="text-align:left" value="O-">O-</option>
-          <option style="text-align:left" value="AB+">AB+</option>
-          <option style="text-align:left" value="AB-">AB-</option>
-        </select>
-        </div>
+          <div class="formbold-input-flex">
+            <div>
+              <label for="corr_prof_area" class="formbold-form-label"> Area </label>
+              <input type="text" name="corr_prof_area" id="corr_prof_area" class="formbold-form-input" />
+            </div>
+            <div>
+              <label for="corr_prof_city" class="formbold-form-label"> City </label>
+              <input type="text" name="corr_prof_city" id="corr_prof_city" class="formbold-form-input" />
+            </div>
+          <div>
+              <label for="corr_prof_pin_code" class="formbold-form-label"> Zip code </label>
+              <input type="number"   name="corr_prof_pin_code" id="corr_prof_pin_code" class="formbold-form-input" />
+            </div>
+          </div>
+          </div> {% endcomment %}
+          <div class="card" id="prev_card" style="display:none">
+            <div class="card-body">
+              <div class="col-12 "  >
+              <div class="card mt-1" style="font-family: Calibri;font-weight:700" >
+                <div class="card-read-more ">
+                  <div class="row p-2" style="background-color:#251749;margin-left:0px;margin-right:-1px;text-align:left">
+                    <div class="col-1 " style="color:white;font-size:16px;">
+                      <span><b>{{forloop.counter}}</b></span>
+                    </div>
+                    <div class="col-11" style="">
+                      <span  class="" style="text-transform: uppercase;font-size:16px;">
+                        <b style="color:white"><span class="mr-2" style="text-transform: uppercase;font-size:16px;">CA.</span><span id="mem_fullname"></span></b>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row pb-2 pt-2 pr-1" >
+                  <div class="col-2 ">
+                    <div class="img-card"  >
+                        <img src="" id="imgshow" height="130px" width="110px" style="margin-left:20px">
+                    </div>
+                  </div>
+                  <div class="col-5" >
+                    <div class="row"  style="text-align:left;margin-bottom:-15px">
+                      <div class="col-lg-2 col-sm-3" >
+                        <h6 class="card-title" style="font-size:16px;">Mem No</h6>
+                      </div>
+                      <div class="col-1 ">
+                        <h6 class="card-title" style="font-size:16px">:</h6>
+                      </div>
+                      <div class="col-lg-9 col-sm-8">
+                        <p style="font-size:16px;color:#413F42" id="prev_mem_num"></p>
+                      </div>
+                    </div>
+                    <div class="row" style="text-align:left;margin-bottom:-15px">
+                      <div class="col-lg-2 col-sm-3">
+                        <h6 class="card-title" style="font-size:16px" id="">Mem Yr</h6>
+                      </div>
+                      <div class="col-1">
+                        <h6 class="card-title" style="font-size:16px">:</h6>
+                      </div>
+                      <div class="col-lg-9 col-sm-8">
+                        <p style="font-size:16px;color:#413F42" id="prev_membership_yr"></p>
+                      </div>
+                    </div>
+                    <div class="row"  style="text-align:left;margin-bottom:-15px">
+                      <div class="col-lg-2 col-sm-3" >
+                        <h6 class="card-title" style="font-size:16px" >Firm</h6>
+                      </div>
+                      <div class="col-1">
+                        <h6 class="card-title" style="font-size:16px">:</h6>
+                      </div>
+                      <div class="col-lg-9 col-sm-8">
+                        <p style="font-size:16px;color:#413F42" id="prev_organization"></p>
+                      </div>
+                    </div>
+                   
+                    <div class="row"  style="text-align:left;margin-bottom:-15px">
+                      <div class="col-lg-2 col-sm-3" >
+                        <h6 class="card-title" style="font-size:16px">P.Add</h6>
+                      </div>
+                      <div class="col-1">
+                        <h6 class="card-title" style="font-size:16px">:</h6>
+                      </div>
+                      <div class="col-lg-9 col-sm-8 link">
+                        <p style="font-size:16px;color:#413F42" id="prev_prof_add"></p>
+                      </div>
+                    </div>
+                    <div class="row"  style="text-align:left;margin-bottom:-15px">
+                      <div class="col-lg-2 col-sm-3" >
+                        <h6 class="card-title" style="font-size:16px">Ph.No.</h6>
+                      </div>
+                      <div class="col-1">
+                        <h6 class="card-title" style="font-size:16px">:</h6>
+                      </div>
+                      <div class="col-lg-9 col-sm-8">
+                        <b><p style="font-size:16px;color:#413F42" id="prev_Phone_num"></p></b>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-5">    
+                    <div class="row" style="text-align:left;margin-bottom:-15px">
+                      <div class="col-lg-2 col-sm-3">
+                        <h6 class="card-title" style="font-size:16px">DOB</h6>
+                      </div>
+                      <div class="col-1">
+                        <h6 class="card-title" style="font-size:16px">:</h6>
+                      </div>
+                      <div class="col-lg-9 col-sm-8">
+                        <p style="font-size:16px;color:#413F42" id="prev_DOB"></p>
+                      </div>
+                    </div>
+                    <div class="row" style="text-align:left;margin-bottom:-15px">
+                      <div class="col-lg-2 col-sm-3">
+                        <h6 class="card-title" style="font-size:16px">DOM</h6>
+                      </div>
+                      <div class="col-1">
+                        <h6 class="card-title" style="font-size:16px">:</h6>
+                      </div>
+                      <div class="col-lg-9 col-sm-8">
+                        <p style="font-size:16px;color:#413F42" id="prev_DOM"></p>
+                      </div>
+                    </div>
+                    <div class="row" style="text-align:left;margin-bottom:-15px">
+                      <div class="col-lg-2 col-sm-3">
+                        <h6 class="card-title" style="font-size:16px">Bld Gr</h6>
+                      </div>
+                      <div class="col-1">
+                        <h6 class="card-title" style="font-size:16px">:</h6>
+                      </div>
+                      <div class="col-lg-9 col-sm-8">
+                        <p style="font-size:16px;color:#413F42" id="prev_bd_group"></p>
+                      </div>
+                    </div>
+                    <div class="row" style="text-align:left;margin-bottom:-15px">
+                      <div class="col-lg-2 col-sm-3">
+                        <h6 class="card-title" style="font-size:16px">R. Add</h6>
+                      </div>
+                      <div class="col-1">
+                        <h6 class="card-title" style="font-size:16px">:</h6>
+                      </div>
+                      <div class="col-lg-9 col-sm-8 link">
+                        <p style="font-size:16px;color:#413F42" id="prev_res_add"></p>
+                      </div>
+                    </div>
+                    <div class="row"  style="text-align:left;margin-bottom:-15px">
+                      <div class="col-lg-2 col-sm-3" >
+                        <h6 class="card-title" style="font-size:16px">Email</h6>
+                      </div>
+                      <div class="col-1">
+                        <h6 class="card-title" style="font-size:16px">:</h6>
+                      </div>
+                      <div class="col-lg-9 col-sm-8">
+                        <b><p style="font-size:16px;color:#413F42" id="prev_email_id"></p></b>
+                      </div>
+                    </div>   
+                  </div>
+                </div>             
+              </div>
+            </div>
+
+
+              <!-- Submit Button  -->
+              <div class="form-group row text-right mt-4" style="float:right">
+                <div class="col">
+                  {% comment %} <button class="btn btn-light btn-customized" id="back_btn" type="button">Back</button> {% endcomment %}
+                  <button class="btn btn-primary btn-customized" id="submit_form" type="submit">Submit Info</button>
+                </div>
+              </div>   
+            </div>
+          </div> 
+        </form>
       </div>
+    </div>
+  </div>
 
-      <div class="formbold-mb-3">
-        <label for="residential_address" class="formbold-form-label"> Residential Address</label>
-        <input type="text" name="residential_address" id="residential_address" class="formbold-form-input" />
-      </div>
-
-      <div class="formbold-input-flex">
-        <div>
-          <label for="residential_area" class="formbold-form-label"> Area </label>
-          <input type="text" name="residential_area" id="residential_area" class="formbold-form-input"/>
-        </div>
-        <div>
-          <label for="residential_city" class="formbold-form-label"> City</label>
-          <input type="text" name="residential_city" id="residential_city" class="formbold-form-input" />
-        </div>
-       <div>
-          <label for="residential_pin_code" class="formbold-form-label"> Zip code </label>
-          <input type="number"   name="residential_pin_code" id="residential_pin_code" class="formbold-form-input" />
-        </div>  
-      </div>
-      <div class="formbold-input-flex">
-        <div>
-        <label for="holding_COP" class="formbold-form-label" style="padding-bottom:10px"> Do You Hold A Certificate Of Practice? </label>
-        <label class="radio-inline">
-            <input type="radio" id="holding_COP"  name="holding_COP" value="Yes" checked> Yes
-        </label>
-        <label class="radio-inline" style="margin-left:20px">
-            <input type="radio" id="holding_COP" name="holding_COP" value="No"> No
-        </label>
-       
-        </div>
-        <div style="border: none;">
-          <label for="photo" class="formbold-form-label"> Photo </label>
-          <input type="file" name="photo" id="photo" class="formbold-form-input" style="font-size:14px;"/>
-        </div>
-      </div> 
-    <br><hr style="margin-left:234px"><h5 style="margin-top:-30px">Professional Information</h5><br>
-      <div class="formbold-mb-3">
-        <label for="Organization" class="formbold-form-label">Organization Name</label>
-        <input type="text" name="organization" id="organization" class="formbold-form-input" />
-      </div>
-
-      <div class="formbold-input-flex">
-        <div>
-          <label for="email_id" class="formbold-form-label"> Email ID </label>
-          <input type="email" name="email_id" id="email_id" class="formbold-form-input" />
-        </div>
-        <div>
-          <label for="Phone_number" class="formbold-form-label"> Phone number </label>
-          <input type="number"   name="Phone_number" id="Phone_number" class="formbold-form-input" />
-        </div>
-      </div>
-
-      <div class="formbold-mb-3">
-        <label for="prof_address" class="formbold-form-label">Professional Address </label>
-        <input type="text" name="prof_address" id="prof_address" class="formbold-form-input"/>
-      </div>
-
-      <div class="formbold-input-flex">
-        <div>
-          <label for="prof_area" class="formbold-form-label"> Area </label>
-          <input type="text" name="prof_area" id="prof_area" class="formbold-form-input" />
-        </div>
-        <div>
-          <label for="prof_city" class="formbold-form-label"> City </label>
-          <input type="text" name="prof_city" id="prof_city" class="formbold-form-input" />
-        </div>
-       <div>
-          <label for="prof_pin_code" class="formbold-form-label"> Zip code </label>
-          <input type="number"   name="prof_pin_code" id="prof_pin_code" class="formbold-form-input" />
-        </div>
-      </div>
-      <div id="append_corr_add" style="display:none">
-        <br><hr style="margin-left:350px"><h5 style="margin-top:-30px">Correspondence Address Of Nagpur</h5><br>
-
-      <div class="formbold-mb-3">
-        <label for="corr_prof_address" class="formbold-form-label"> Address In Nagpur</label>
-        <input type="text" name="corr_prof_address" id="corr_prof_address" class="formbold-form-input"/>
-      </div>
-
-      <div class="formbold-input-flex">
-        <div>
-          <label for="corr_prof_area" class="formbold-form-label"> Area </label>
-          <input type="text" name="corr_prof_area" id="corr_prof_area" class="formbold-form-input" />
-        </div>
-        <div>
-          <label for="corr_prof_city" class="formbold-form-label"> City </label>
-          <input type="text" name="corr_prof_city" id="corr_prof_city" class="formbold-form-input" />
-        </div>
-       <div>
-          <label for="corr_prof_pin_code" class="formbold-form-label"> Zip code </label>
-          <input type="number"   name="corr_prof_pin_code" id="corr_prof_pin_code" class="formbold-form-input" />
-        </div>
-      </div>
-      </div>
-
-     
-
-      <button type="submit" class="formbold-btn" style="font-size:23px"><b>Submit Info</b></button>
-    </form>
   </div>
 </div>
+
 
 
 <script>
@@ -351,50 +501,196 @@ input.plholder[placeholder] {
     let member_number=$('#membership_number').val();
     let result = member_number.toString().padStart(6, '0')
     $("input#membership_number").val(result);
- });
-</script>
-<!--Validate membership num-->
-{% comment %} <script>
-   $(document).on('submit','#validate_no',function(e){
-            e.preventDefault();
-            var member_number=$('#membership_number').val();
-
-              
-            if (membership_number == '') {
-                alert("Please Enter ")
-              }else if(isNaN(Phone_number Membership Number)){
-                 alert("insert a number");
-            }else{
-                    $.ajax({
-                        type:'POST',
-                        url: '{% url "Info_App:validate_no" %}',
-                        data:{ 
-                                    membership_number:$('#membership_number').val(), 
-                                    csrfmiddlewaretoken : $('input[name = csrfmiddlewaretoken]').val()
-                        },
-                        success:function(response){ 
-                            if(response.message == 'validate successfully'){
-                              alert('Validate Successfully'); 
-                              $("#membership_number").hide();
-                              $("#ca_form").show();
-                              submitinfo=response.submitinfo; 
-                              
-
-                            }else if(response.message == 'Membership Number already exist')
-                              alert('Membership Number Already Exist');
-                            else{
-                                alert('unable to submit information');
-                            }    
-                        }
-
-                    });
-          }//else end
-        });
-      </script> {% endcomment %}
 
 
 
-<!--correspondence address hide and show conditions-->
+//image pass to preview card
+    $("#photo").change(function () {
+      if (this.files && this.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+              $('#imgshow').attr('src', e.target.result);
+          }
+          reader.readAsDataURL(this.files[0]);
+      }
+  });  
+
+
+  //view Partners Detail button click function
+$("#view_details").click(function(){  
+    var member_firstname=$('#member_firstname').val();
+    var member_middlename=$('#member_middlename').val();
+    var member_lastname=$('#member_lastname').val();
+    var organization=$('#organization').val();
+    var year_of_membership=$('#year_of_membership').val();
+    var membership_number=$('#membership_number').val();
+    var prof_address=$('#prof_address').val();
+    var prof_area=$('#prof_area').val();
+    var prof_city=$('#prof_city').val();
+    var prof_pin_code=$('#prof_pin_code').val();
+    var DOB=$('#DOB').val();
+    var DOM=$('#DOM').val();
+    var blood_group=$('#blood_group').val();
+    var residential_address=$('#residential_address').val();
+    var residential_area=$('#residential_area').val();
+    var residential_city=$('#residential_city').val();
+    var residential_pin_code=$('#residential_pin_code').val();
+    var email_id=$('#email_id').val();
+    var Phone_number=$('#Phone_number').val();
+    var holding_COP=$('#holding_COP').val();
+    if (member_firstname == ''|| member_middlename == '' || member_lastname == '' || organization == ''|| membership_number == ''|| year_of_membership == ''|| prof_address == ''
+                || prof_area == ''|| prof_city == ''|| prof_pin_code == ''|| DOB == ''|| DOM == ''|| blood_group == '' || residential_address=='' || residential_area==''
+                || residential_city == ''|| residential_pin_code == ''|| email_id == ''|| Phone_number == ''|| holding_COP == ''|| photo == '') {
+                    alert("Please fill all fields")
+                  }else if(isNaN(Phone_number)){
+                    alert("insert a number");
+                }else if((Phone_number.charAt(0)!=9) && (Phone_number.charAt(0)!=8) && (Phone_number.charAt(0)!=7)){
+                    alert('Mobile number must start with 9 ,8 ,7 or 6');
+                }else if(Phone_number.length!==10){
+                    alert('Please put 10  digit mobile number');
+                }else if(prof_pin_code.length!=6 || residential_pin_code.length!=6){
+                  alert('Please Enter 6 digit pin code');
+                }else{
+                      $("#prev_card").show();
+                      $("#form_card").hide();
+                      $("#form_p").hide();
+                      var mem_firstname=$("#member_firstname").val()
+                      var mem_lastname=$("#member_lastname").val()
+                      var mem_middlename=$("#member_middlename").val()
+                      $("#mem_fullname").html(mem_lastname + " "+ mem_firstname +" "+ mem_middlename)
+
+                      var prev_mem_num=$("#membership_number").val()
+                      $("#prev_mem_num").html(prev_mem_num)
+                      
+                      var prev_organization=$('#organization').val();
+                      $("#prev_organization").html(prev_organization)
+
+                      var prev_membership_yr=$('#year_of_membership').val();
+                      $("#prev_membership_yr").html(prev_membership_yr)
+
+                      var prev_prof_add=$('#prof_address').val();
+                      var prev_prof_area=$('#prof_area').val();
+                      var prev_prof_city=$('#prof_city').val();
+                      var prev_prof_pin=$('#prof_pin_code').val();
+                      $("#prev_prof_add").html(prev_prof_add +" "+prev_prof_area+" "+prev_prof_city+" "+prev_prof_pin)
+
+                      var prev_DOB=$('#DOB').val();
+                      $("#prev_DOB").html(prev_DOB)
+
+                      var prev_DOM=$('#DOM').val();
+                      $("#prev_DOM").html(prev_DOM)
+
+                      var prev_bd_group=$('#blood_group').val();
+                      $("#prev_bd_group").html(prev_bd_group)
+
+                      var prev_res_add=$('#residential_address').val();
+                      var prev_res_area=$('#residential_area').val();
+                      var prev_res_city=$('#residential_city').val();
+                      var prev_res_pin=$('#residential_pin_code').val();
+                      $("#prev_res_add").html(prev_res_add+" "+prev_res_area+" "+prev_res_city+" "+prev_res_pin)
+                      
+                      var prev_email_id=$('#email_id').val();
+                      $("#prev_email_id").html(prev_email_id)
+
+                      var prev_Phone_num=$('#Phone_number').val();
+                      $("#prev_Phone_num").html(prev_Phone_num)
+
+                      var prev_hol_COP=$('#holding_COP').val();
+                      $("#prev_hol_COP").html(prev_hol_COP)
+
+                      var prev_photo=$('#photo').val();
+                      $("#prev_photo").html(prev_photo)
+                }
+  });    
+
+
+    //<!--submit form using ajax-->
+      $(document).on('submit','#ca_form',function(e){
+                e.preventDefault();
+                var member_firstname=$('#member_firstname').val();
+                var member_middlename=$('#member_middlename').val();
+                var member_lastname=$('#member_lastname').val();
+                var organization=$('#organization').val();
+                var year_of_membership=$('#year_of_membership').val();
+                var membership_number=$('#membership_number').val();
+                var prof_address=$('#prof_address').val();
+                var prof_area=$('#prof_area').val();
+                var prof_city=$('#prof_city').val();
+                var prof_pin_code=$('#prof_pin_code').val();
+                var DOB=$('#DOB').val();
+                var DOM=$('#DOM').val();
+                var blood_group=$('#blood_group').val();
+                var residential_address=$('#residential_address').val();
+                var residential_area=$('#residential_area').val();
+                var residential_city=$('#residential_city').val();
+                var residential_pin_code=$('#residential_pin_code').val();
+                var email_id=$('#email_id').val();
+                var Phone_number=$('#Phone_number').val();
+                var holding_COP=$('#holding_COP').val();
+                var photo=$('#photo').val();
+                  
+                if (member_firstname == ''|| member_middlename == '' || member_lastname == '' || organization == ''|| membership_number == ''|| year_of_membership == ''|| prof_address == ''
+                || prof_area == ''|| prof_city == ''|| prof_pin_code == ''|| DOB == ''|| DOM == ''|| blood_group == '' || residential_address=='' || residential_area==''
+                || residential_city == ''|| residential_pin_code == ''|| email_id == ''|| Phone_number == ''|| holding_COP == ''|| photo == '') {
+                    alert("Please fill all fields")
+                  }else if(isNaN(Phone_number)){
+                    alert("insert a number");
+                }else if((Phone_number.charAt(0)!=9) && (Phone_number.charAt(0)!=8) && (Phone_number.charAt(0)!=7)){
+                    alert('Mobile number must start with 9 ,8 ,7 or 6');
+                }else if(Phone_number.length!==10){
+                    alert('Please put 10  digit mobile number');
+                }else if(prof_pin_code.length!=6 || residential_pin_code.length!=6){
+                  alert('Please Enter 6 digit pin code');
+                }else{
+                        $.ajax({
+                            type:'POST',
+                            url: '{% url "Info_App:submit_cainfo" %}',
+                            data:{ 
+                                        member_firstname:$('#member_firstname').val(),
+                                        member_middlename:$('#member_middlename').val(),
+                                        member_lastname:$('#member_lastname').val(),
+                                        organization:$('#organization').val(),
+                                        membership_number:$('#membership_number').val(),
+                                        year_of_membership:$('#year_of_membership').val(),
+                                        prof_address:$('#prof_address').val(),
+                                        prof_area:$('#prof_area').val(),
+                                        prof_city:$('#prof_city').val(),
+                                        prof_pin_code:$('#prof_pin_code').val(),
+                                        DOB:$('#DOB').val(),
+                                        DOM:$('#DOM').val(),
+                                        blood_group:$('#blood_group').val(),
+                                        residential_address:$('#residential_address').val(),
+                                        residential_area:$('#residential_area').val(),
+                                        residential_city:$('#residential_city').val(),
+                                        residential_pin_code:$('#residential_pin_code').val(),                                    
+                                        email_id:$('#email_id').val(),
+                                        Phone_number:$('#Phone_number').val(),
+                                        holding_COP:$('#holding_COP').val(),
+                                        photo:$('#photo').val(), 
+                                        csrfmiddlewaretoken : $('input[name = csrfmiddlewaretoken]').val()
+                            },
+                            success:function(response){ 
+                                if(response.message == 'submit successfully'){
+                                  alert('submit information'); 
+                                  document.getElementById("ca_form").reset();
+                                  $("#ca_form").show();
+                                  $("#preview_info").hide();
+                                  window.location.href = "http://127.0.0.1:8000/validate_no";
+                                  
+                                }else if(response.message == 'Membership Number already exist')
+                                  alert('Membership Number Already Exist');
+                                else{
+                                    alert('unable to submit information');
+                                }    
+                            }
+
+                        });
+              }//else end
+            });
+          
+  });
+   </script>
+{% comment %} <!--correspondence address hide and show conditions-->
 <script>
   $('input#prof_city').on('change',function(e){
     if ($("input#prof_city").val().includes('Nagpur') || $("input#prof_city").val().includes('NAGPUR') || $("input#prof_city").val().includes('nagpur')) {
@@ -403,101 +699,7 @@ input.plholder[placeholder] {
       $("#append_corr_add").show();
     }
    }); 
-</script>
-
-
-<!--submit form using ajax-->
-<script>
-$(document).ready(function(){ 
-  $(document).on('submit','#ca_form',function(e){
-            e.preventDefault();
-            var member_firstname=$('#member_firstname').val();
-            var member_middlename=$('#member_middlename').val();
-            var member_lastname=$('#member_lastname').val();
-            var organization=$('#organization').val();
-            var year_of_membership=$('#year_of_membership').val();
-            var member_number=$('#membership_number').val();
-            var prof_address=$('#prof_address').val();
-            var prof_area=$('#prof_area').val();
-            var prof_city=$('#prof_city').val();
-            var prof_pin_code=$('#prof_pin_code').val();
-            var DOB=$('#DOB').val();
-            var DOM=$('#DOM').val();
-            var blood_group=$('#blood_group').val();
-            var residential_address=$('#residential_address').val();
-            var residential_area=$('#residential_area').val();
-            var residential_city=$('#residential_city').val();
-            var residential_pin_code=$('#residential_pin_code').val();
-            var email_id=$('#email_id').val();
-            var Phone_number=$('#Phone_number').val();
-            var holding_COP=$('#holding_COP').val();
-            var photo=$('#photo').val();
-              
-            if (member_firstname == ''|| member_middlename == '' || member_lastname == '' || organization == ''|| membership_number == ''|| year_of_membership == ''|| prof_address == ''
-            || prof_area == ''|| prof_city == ''|| prof_pin_code == ''|| DOB == ''|| DOM == ''|| blood_group == '' || residential_address=='' || residential_area==''
-            || residential_city == ''|| residential_pin_code == ''|| email_id == ''|| Phone_number == ''|| holding_COP == ''|| photo == '') {
-                alert("Please fill all fields")
-              }else if(isNaN(Phone_number)){
-                 alert("insert a number");
-            }else if((Phone_number.charAt(0)!=9) && (Phone_number.charAt(0)!=8) && (Phone_number.charAt(0)!=7)){
-                alert('Mobile number must start with 9 ,8 ,7 or 6');
-            }else if(Phone_number.length!==10){
-                alert('Please put 10  digit mobile number');
-            }else if(prof_pin_code.length!=6 || residential_pin_code.length!=6){
-              alert('Please Enter 6 digit pin code');
-            }else{
-                    $.ajax({
-                        type:'POST',
-                        url: '{% url "Info_App:submit_cainfo" %}',
-                        data:{ 
-                                    member_firstname:$('#member_firstname').val(),
-                                    member_middlename:$('#member_middlename').val(),
-                                    member_lastname:$('#member_lastname').val(),
-                                    organization:$('#organization').val(),
-                                    membership_number:$('#membership_number').val(),
-                                    year_of_membership:$('#year_of_membership').val(),
-                                    prof_address:$('#prof_address').val(),
-                                    prof_area:$('#prof_area').val(),
-                                    prof_city:$('#prof_city').val(),
-                                    prof_pin_code:$('#prof_pin_code').val(),
-                                    DOB:$('#DOB').val(),
-                                    DOM:$('#DOM').val(),
-                                    blood_group:$('#blood_group').val(),
-                                    residential_address:$('#residential_address').val(),
-                                    residential_area:$('#residential_area').val(),
-                                    residential_city:$('#residential_city').val(),
-                                    residential_pin_code:$('#residential_pin_code').val(),                                    
-                                    corr_prof_address:$('#corr_prof_address').val(),
-                                    corr_prof_area:$('#corr_prof_area').val(),
-                                    corr_prof_city:$('#corr_prof_city').val(),
-                                    corr_prof_pin_code:$('#corr_prof_pin_code').val(),
-                                    email_id:$('#email_id').val(),
-                                    Phone_number:$('#Phone_number').val(),
-                                    holding_COP:$('#holding_COP').val(),
-                                    photo:$('#photo').val(), 
-                                    csrfmiddlewaretoken : $('input[name = csrfmiddlewaretoken]').val()
-                        },
-                        success:function(response){ 
-                            if(response.message == 'submit successfully'){
-                              alert('submit information'); 
-                              document.getElementById("ca_form").reset();
-                              $("#append_corr_add").hide();
-                              submitinfo=response.submitinfo; 
-                              
-
-                            }else if(response.message == 'Membership Number already exist')
-                              alert('Membership Number Already Exist');
-                            else{
-                                alert('unable to submit information');
-                            }    
-                        }
-
-                    });
-          }//else end
-        });
-      
-  });
-   </script>
+</script> {% endcomment %}
 
   </body>
 </html>

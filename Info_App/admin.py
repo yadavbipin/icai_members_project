@@ -5,6 +5,8 @@ from import_export.admin import ImportExportModelAdmin
 
 # Register your models here.
 @admin.register(form_submission)
+class ViewAdmin(ImportExportModelAdmin):
+    pass
 
 @admin.register(Personal_Info)
 class ViewAdmin(ImportExportModelAdmin):
