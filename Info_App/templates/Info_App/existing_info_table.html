@@ -10,7 +10,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>  
-<style>
+
+
+    <style>
 body{
     font-family: times new roman
   }
@@ -26,7 +28,7 @@ body{
           </div>
             <div class="card" >
                 <div class="card-body">
-                    <table class="table table-bordered">
+                    {% comment %} <table class="table table-bordered">
                        
                         <tbody>
                           <tr>
@@ -95,7 +97,7 @@ body{
                             <td scope="col">{{fetch_info.prof_address}}, {{fetch_info.prof_area}}, {{fetch_info.prof_city}} - {{fetch_info.prof_pin_code}}</td>                                                      
                           </tr>
                         </tbody>
-                      </table>
+                      </table> {% endcomment %}
 
 
                       <section class="wrapper" id="element">
@@ -120,10 +122,17 @@ body{
                                       <div class="row pb-2 pt-2 pr-1" >
                                         <div class="col-2 ">
                                           <div class="img-card"  >
-                                            {% if fetch_info.photo == '' %}
-                                              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO6AKY7TBvygcrXFS5JtwUpPT6mVwRxhP7XQ&usqp=CAU" height="130px" width="110px" style="margin-left:20px" >
+                                          
+                                            {% if fetch_info.new_photo %}  
+                                              <img src="{{fetch_info.new_photo.url}}" alt="{{fetch_info.member_firstname}}" height="130px" width="110px" style="margin-left:20px">
+                                            {% elif fetch_info.new_photo == "" and fetch_info.photo %}
+                                              <img src="{{fetch_info.photo}}" alt="{{fetch_info.member_firstname}}" height="130px" width="110px" style="margin-left:20px">
                                             {% else %}
-                                              <img src="{{fetch_info.photo}}" height="130px" width="110px" style="margin-left:20px">
+                                            <div class="card " style="width;border:none">
+                                              <div class="card-body">
+                                                <img src="{%static 'Info_App\images\user.png'%}" height="130px" width="110px" style="margin-left:20px"  >
+                                              </div>
+                                            </div> 
                                             {% endif %}
                                           </div>
                                         </div>

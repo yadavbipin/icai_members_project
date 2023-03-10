@@ -61,10 +61,16 @@
                 <div class="row pb-2 pt-2 pr-1" >
                   <div class="col-2 ">
                     <div class="img-card"  >
-                      {% if i.photo == '' %}
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO6AKY7TBvygcrXFS5JtwUpPT6mVwRxhP7XQ&usqp=CAU"  >
+                      {% if i.new_photo %}  
+                        <img src="{{i.new_photo.url}}" alt="{{i.member_firstname}}" height="100px" width="90px">
+                      {% elif i.new_photo == "" and i.photo %}
+                        <img src="{{i.photo}}" alt="{{i.member_firstname}}" height="100px" width="90px">
                       {% else %}
-                        <img src="{{i.photo}}">
+                      <div class="card " style="width;border:none">
+                        <div class="card-body">
+                          <img src="{%static 'Info_App\images\user.png'%}" height="90px" width="80px"  >
+                        </div>
+                      </div> 
                       {% endif %}
                     </div>
                   </div>
@@ -102,17 +108,6 @@
                         <p style="font-size:16px;color:#413F42">{{i.organization}}</p>
                       </div>
                     </div>
-                    {% comment %} <div class="row"  style="text-align:left;margin-bottom:-15px">
-                      <div class="col-2" >
-                        <h6 class="card-title" style="font-size:16px">COP</h6>
-                      </div>
-                      <div class="col-1">
-                        <h6 class="card-title" style="font-size:16px">:</h6>
-                      </div>
-                      <div class="col-lg-9 col-sm-8">
-                        <p style="font-size:16px">{{i.holding_COP}}</p>
-                      </div>
-                    </div> {% endcomment %}
                     <div class="row"  style="text-align:left;margin-bottom:-15px">
                       <div class="col-lg-2 col-sm-3" >
                         <h6 class="card-title" style="font-size:16px">P.Add</h6>
@@ -197,55 +192,6 @@
               </div>
             </div>
                          
-          
-
-            {% comment %} {% if forloop.counter|divisibleby:7 %}  
-            <!--footer-->
-            <div class="row divFooter ml-3 mr-3 mb-2 mt-3" style="width:100%;">
-                <div class="col-xs-12 col-sm-12">
-                    <div class="row  p-2" style="background-color:#251749;text-align:left">
-                        <div class="col-4">
-                            <b class="p-2" style="color:white;text-transform: uppercase;font-size:16px">Nagpur Branch of WIRC of ICAI</b>                          
-                        </div>
-                        <div class="col-4" style="text-align:center">     
-                            <b class="p-2" style="color:#251749;text-transform: uppercase;font-size:16px; border:3px solid white;margin-left:-60px;border-radius:50%;background-color:white">{{ forloop.counter}}</b>                          
-                        </div>
-                        <div class="col-4" style="text-align:right">
-                            <b class="p-2" style="color:white;text-transform: uppercase;font-size:16px;">Member's Directory</b>                          
-                        </div>     
-                    </div>        
-                </div>
-            </div>  
-            <!--end footer-->
-             <!--header-->      
-              <div class="row divheader ml-3 mr-3 mb-2 mt-2" style="width:100%;">
-                <div class="col-xs-12 col-sm-12">                
-                  <div class="row " style="background-color:#251749;text-align:left">
-                    <div class="col-2">
-                      <img src="{%static 'Info_App/images/CA_logo.png'%}" height="40px" width="40px">
-                    </div>
-                    <div class="col-4 mt-2">       
-                      <b class="p-1" style="color:white;text-transform: uppercase; border:3px solid white;font-size:16px;">Members in Practice</b>                          
-                    </div>
-                    
-                      {%if i.member_lastname == '' %}
-                        <b class="p-1" style="color:white;text-transform: uppercase; border:3px solid white;font-size:16px;border-radius:10px">*</b>                          
-                      {% else %}
-                        <b class="p-1" style="color:white;text-transform: uppercase; border:3px solid white;font-size:16px;border-radius:10px">{{i.member_lastname|slice:"1" }}</b>                          
-                      {% endif %}
-                    <div class="col-2" style="text-align:right;">
-                      <img src="{%static 'Info_App/images/CA_bird_logo.png'%}" height="40px" width="40px">
-                    </div>
-                  </div>
-              </div>
-            </div> 
-             <!--end header-->  
-             
-          {% endif %} {% endcomment %}
-
-
-
-
       <!--footer--> 
       {% if forloop.counter|divisibleby:7 %}     
         
@@ -266,8 +212,7 @@
                   </div>     
               </div>        
           </div>
-      </div>
-      
+      </div>   
   {% endif %}
   {% if forloop.last %} 
     <div class="row divFooter ml-3 mr-3 mb-2 mt-4 " id="last_foot" style="width:100%;">
@@ -292,7 +237,7 @@
   
     <!--end footer-->  
 
-       <!--header--> 
+    <!--header--> 
        {% if forloop.counter|divisibleby:7 %}
                
        <div class="row divheader ml-3 mr-3 mb-2 " style="width:100%;">
