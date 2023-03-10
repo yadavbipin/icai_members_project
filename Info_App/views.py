@@ -7,8 +7,6 @@ from django.template.loader import get_template
 from xhtml2pdf import pisa
 from django.db.models import Q
 from django.http import JsonResponse
-import json
-from django.core import serializers
 from django.contrib import messages
 
 # for update image 

@@ -253,15 +253,14 @@ input.plholder[placeholder] {
           </div>
           <div class="formbold-input-flex">
             <div>
-            <label for="holding_COP" class="formbold-form-label" style="padding-bottom:10px"> Do You Hold A Certificate Of Practice? </label>
-            <label class="radio-inline">
-                <input type="radio" id="holding_COP"  name="holding_COP" value="Yes" checked> Yes
-            </label>
-            <label class="radio-inline" style="margin-left:20px">
-                <input type="radio" id="holding_COP" name="holding_COP" value="No"> No
-            </label>
-          
-            </div>
+            <label for="holding_COP" class="formbold-form-label" > Do You Hold A Certificate Of Practice? </label>
+            {% comment %} <label><input type="radio" name="holding_COP" id="holding_COP" value="Yes">YES</label>
+            <label style="margin-left:20px"><input type="radio" id="holding_COP" name="holding_COP" value="No">NO</label> {% endcomment %}
+            <select id="holding_COP" name="holding_COP" class="formbold-form-input">
+              <option style="text-align:left"  value="Yes">Yes</option>
+              <option style="text-align:left" value="No">No</option>
+            </select>
+          </div>
             <div style="border: none;">
               <label for="photo" class="formbold-form-label"> Photo </label>
               <input type="file" name="photo" id="photo" class="formbold-form-input" style="font-size:14px;" />

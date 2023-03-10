@@ -32,8 +32,8 @@ class Personal_Info(models.Model):
     
     
 # Holding_COP = (
-#    ('Y', 'Yes'),
-#    ('N', 'No')
+#    ('Yes', 'Yes'),
+#    ('No', 'No')
 # )
 class form_submission(models.Model):
     id=models.AutoField(primary_key=True)
@@ -54,11 +54,11 @@ class form_submission(models.Model):
     residential_city = models.CharField(max_length=500,blank=True, null=True)
     residential_pin_code = models.CharField(max_length=100,blank=True, null=True)
     blood_group=models.CharField(max_length=10,blank=True, null=True)
-    DOB=models.DateField(blank=True, null=True)
-    DOM=models.DateField(blank=True, null=True)
+    DOB=models.CharField(max_length=50,blank=True, null=True)
+    DOM=models.CharField(max_length=50,blank=True, null=True)
     email_id = models.EmailField(max_length=100,blank=True, null=True)
     organization=models.CharField(max_length=500,blank=True, null=True)
-    holding_COP = models.CharField(max_length=100,blank=True, null=True)
+    holding_COP = models.CharField(max_length = 50)
    
     # created_at = models.DateTimeField(auto_now_add=True,null=True, blank=True)
 

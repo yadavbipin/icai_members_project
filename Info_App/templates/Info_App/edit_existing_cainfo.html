@@ -277,8 +277,6 @@ input.plholder[placeholder] {
 </style>
   <body>
 <div class="formbold-main-wrapper">
-  <!-- Author: FormBold Team -->
-  <!-- Learn More: https://formbold.com -->
   <div class="formbold-form-wrapper" >
 
     {% comment %} <div class="row ">
@@ -341,19 +339,17 @@ input.plholder[placeholder] {
         </div>
         <div>
           <label for="blood_group" class="formbold-form-label">Blood Group </label>
-          {% comment %} <input type="text" name="blood_group" id="blood_group" class="formbold-form-input" /> {% endcomment %}
-
-        <select type="text" name="blood_group" id="blood_group" class="formbold-form-input" >
-          <option style="text-align:left" value="A+" selected>{{mymodel.blood_group}}</option> 
-          <option style="text-align:left" value="A+" >A+</option>
-          <option style="text-align:left" value="A-">A-</option>
-          <option style="text-align:left" value="B+">B+</option>
-          <option style="text-align:left" value="B-">B-</option>
-          <option style="text-align:left" value="O+">O+</option>
-          <option style="text-align:left" value="O-">O-</option>
-          <option style="text-align:left" value="AB+">AB+</option>
-          <option style="text-align:left" value="AB-">AB-</option>
-        </select>
+          <select type="text" name="blood_group" id="blood_group" class="formbold-form-input" >
+            <option style="text-align:left" value="A+" selected>{{mymodel.blood_group}}</option> 
+            <option style="text-align:left" value="A+" >A+</option>
+            <option style="text-align:left" value="A-">A-</option>
+            <option style="text-align:left" value="B+">B+</option>
+            <option style="text-align:left" value="B-">B-</option>
+            <option style="text-align:left" value="O+">O+</option>
+            <option style="text-align:left" value="O-">O-</option>
+            <option style="text-align:left" value="AB+">AB+</option>
+            <option style="text-align:left" value="AB-">AB-</option>
+          </select>
         </div>
       </div>
 
@@ -377,27 +373,16 @@ input.plholder[placeholder] {
         </div>  
       </div>
       <div class="formbold-input-flex">
-      {% comment %} {% if mymodel.holding_COP == "Yes" %}   {% endcomment %}
+     
        <div>
         <label for="holding_COP" class="formbold-form-label" style="padding-bottom:10px"> Do You Hold A Certificate Of Practice? </label>
         <label class="radio-inline">
-            <input type="radio" id="holding_COP"  name="holding_COP" value="Yes" checked> Yes
+            <input type="radio" id="holding_COP"  name="holding_COP" value="{{mymodel.holding_COP}}" checked> {{mymodel.holding_COP}}
         </label>
-        <label class="radio-inline" style="margin-left:20px">
-            <input type="radio" id="holding_COP" name="holding_COP" value="No"> No
-        </label>
+        
       </div>
-      {% comment %} {% else %}
-      <div>
-        <label for="holding_COP" class="formbold-form-label" style="padding-bottom:10px"> Do You Hold A Certificate Of Practice? </label>
-        <label class="radio-inline">
-            <input type="radio" id="holding_COP"  name="holding_COP" value="Yes" > Yes
-        </label>
-        <label class="radio-inline" style="margin-left:20px">
-            <input type="radio" id="holding_COP" name="holding_COP" value="No" checked> No
-        </label>
-      </div>
-      {% endif %} {% endcomment %}
+      
+  
       <div style="text-align:right;">
           {% if mymodel.new_photo %}  
             <img src="{{mymodel.new_photo.url}}" alt="{{mymodel.member_firstname}}" height="100px" width="90px">
