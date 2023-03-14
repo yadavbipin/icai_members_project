@@ -276,6 +276,9 @@ input.plholder[placeholder] {
 }
 </style>
   <body>
+<div class="container" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;">
+<div class="row">
+  
 <div class="formbold-main-wrapper">
   <div class="formbold-form-wrapper" >
 
@@ -376,9 +379,18 @@ input.plholder[placeholder] {
      
        <div>
         <label for="holding_COP" class="formbold-form-label" style="padding-bottom:10px"> Do You Hold A Certificate Of Practice? </label>
-        <label class="radio-inline">
-            <input type="radio" id="holding_COP"  name="holding_COP" value="{{mymodel.holding_COP}}" checked> {{mymodel.holding_COP}}
-        </label>
+            {% comment %} <input type="radio" id="holding_COP"  name="holding_COP" value="{{mymodel.holding_COP}}" checked> {{mymodel.holding_COP}} {% endcomment %}
+            {% if mymodel.holding_COP == "Yes"%}
+            <select id="holding_COP" name="holding_COP" class="formbold-form-input">
+              <option style="text-align:left"  selected value="{{mymodel.holding_COP}}">{{mymodel.holding_COP}}</option>
+              <option style="text-align:left" value="No">No</option>
+            </select>
+            {% elif mymodel.holding_COP == "No" %}
+            <select id="holding_COP" name="holding_COP" class="formbold-form-input">
+              <option style="text-align:left"  selected value="{{mymodel.holding_COP}}">{{mymodel.holding_COP}}</option>
+              <option style="text-align:left" value="No">Yes</option>
+            </select>
+            {% endif%}
         
       </div>
       
@@ -440,11 +452,16 @@ input.plholder[placeholder] {
       </div>
       
 
-     
+      <div class="form-group row text-right mt-4" style="float:right">
+        <div class="col">
+          <button type="submit" class=" btn formbold-btn" style="font-size:20px "><b>Update Info</b></button>
+        </div>
+      </div>
 
-      <button type="submit" class="formbold-btn" style="font-size:23px"><b>Update Info</b></button>
     </form>
   </div>
+</div>
+</div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -507,7 +524,7 @@ $(function() {
             
           if (member_firstname == ''|| member_middlename == '' || member_lastname == '' || organization == ''|| membership_number == ''|| year_of_membership == ''|| prof_address == ''
           || prof_area == ''|| prof_city == ''|| prof_pin_code == ''|| DOB == ''|| DOM == ''|| blood_group == '' || residential_address=='' || residential_area==''
-          || residential_city == ''|| residential_pin_code == ''|| email_id == ''|| Phone_number == ''|| holding_COP == ''|| photo == '') {
+          || residential_city == ''|| residential_pin_code == ''|| email_id == ''|| Phone_number == ''|| holding_COP == '') {
               alert("Please fill all fields")
             }else if(isNaN(Phone_number)){
               alert("insert a number");
@@ -517,6 +534,8 @@ $(function() {
               alert('Please put 10  digit mobile number');
           }else if(prof_pin_code.length!=6 || residential_pin_code.length!=6){
             alert('Please Enter 6 digit pin code');
+          }else if(DOB > DOM){
+            alert('Please check your date fields ');
           }else{
 
 

@@ -164,7 +164,7 @@ input.plholder[placeholder] {
 
 </style>
   <body>
-  <div class="container">
+  <div class="container" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;">
     <div class="row">
     <div class="formbold-main-wrapper">
       <!-- Author: FormBold Team -->
@@ -177,7 +177,7 @@ input.plholder[placeholder] {
 
         <div class=""> 
         <form action="" id="ca_form" method="POST" enctype="multipart/form-data">{% csrf_token %}
-        <div class="card" id="form_card">
+        <div class="card" id="form_card" style="border:none;">
           <div class="card-body">
              
             
@@ -306,7 +306,7 @@ input.plholder[placeholder] {
         <!-- view Button  -->
         <div class="form-group row text-right"style="float:right">
           <div class="col" >
-            <button type="button" class="btn btn-primary btn-customized" id="view_details">View Detail</button>
+            <button type="button" class="btn formbold-btn " style="font-size:20px" id="view_details"><b>View Detail</b></button>
           </div>
         </div>
         </div>
@@ -459,7 +459,7 @@ input.plholder[placeholder] {
               <div class="form-group row text-right mt-4" style="float:right">
                 <div class="col">
                   {% comment %} <button class="btn btn-light btn-customized" id="back_btn" type="button">Back</button> {% endcomment %}
-                  <button class="btn btn-primary btn-customized" id="submit_form" type="submit">Submit Info</button>
+                  <button class="btn formbold-btn btn-customized" style="font-size:20px" id="submit_form" type="submit"><b>Submit Info</b></button>
                 </div>
               </div>   
             </div>
@@ -532,6 +532,8 @@ $("#view_details").click(function(){
                     alert('Please put 10  digit mobile number');
                 }else if(prof_pin_code.length!=6 || residential_pin_code.length!=6){
                   alert('Please Enter 6 digit pin code');
+                }else if(DOB > DOM){
+                  alert('Please check your date fields ');
                 }else{
                       $("#prev_card").show();
                       $("#form_card").hide();

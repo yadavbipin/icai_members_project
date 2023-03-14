@@ -9,6 +9,7 @@ from django.db.models import Q
 from django.http import JsonResponse
 from django.contrib import messages
 
+from datetime import datetime
 # for update image 
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
@@ -73,7 +74,10 @@ def validate_no(request):
         membership_num = request.POST['membership_num']
         yr_of_membership = request.POST['yr_of_membership']
         Birth_date = request.POST['Birth_date']
-        print(membership_num)
+      
+        #Year pass to html membership year dropdown
+        current_year = datetime.now().year
+        year_list = list(range(1950, current_year+1))
         
         # validation on membership number
         existing_info= form_submission.objects.values_list('membership_number')
@@ -98,14 +102,19 @@ def validate_no(request):
             #fetch info corresponding entered membershipnumber
             fetch_info=form_submission.objects.get(membership_number=membership_num)
             if yr_of_membership != fetch_info.year_of_membership or Birth_date != fetch_info.DOB:
-                messages.error(request,"Member Already Exists ,Please Enter Correct Informations")
+                messages.error(request,"Membership Number already exists, Please enter correct Membership Year and/or DOB to View/Edit your details")
                 return redirect('Info_App:validate_no')
             else:
                 return render(request,'Info_App/existing_info_table.html',{'fetch_info':fetch_info})
         else:
-             return render(request,'Info_App/submit_cainfo.html',{'membership_num':membership_num,'yr_of_membership':yr_of_membership,'Birth_date':Birth_date})
-            
-    return render(request,'Info_App/validate_no.html')
+            messages.error(request,"Membership Number does not exists, cannot register new member!")
+            return redirect('Info_App:validate_no')
+            #  return render(request,'Info_App/submit_cainfo.html',{'membership_num':membership_num,'yr_of_membership':yr_of_membership,'Birth_date':Birth_date})
+    
+    #Year pass to html membership year dropdown
+    current_year = datetime.now().year
+    year_list = list(range(1980, current_year+1))
+    return render(request,'Info_App/validate_no.html',{'year_list': year_list})
 
 
 
@@ -212,8 +221,11 @@ def edit_existing_cainfo(request, ca_id):
         Date_of_Marriage = request.POST.get('DOM')
         email_id = request.POST.get('email_id')
         organization = request.POST.get('organization')
-        holding_COP = request.POST.get('holding_COP')   
-        new_image = request.FILES.get('photo')
+        holding_COP = request.POST.get('holding_COP')  
+        if request.FILES.get('photo')=="":
+          new_image =mymodel.photo
+        else:
+          new_image = request.FILES.get('photo')
 
         # if a new image was provided, update the model's image field
         if new_image:

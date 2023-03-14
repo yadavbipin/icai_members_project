@@ -190,7 +190,12 @@ input::-webkit-inner-spin-button {
           <div class="formbold-input-flex">
             <div>
               <label for="year_of_membership" class="formbold-form-label"> Membership Year </label>
-              <input type="number"  name="yr_of_membership" id="yr_of_membership"  class="formbold-form-input" />
+             <select name="yr_of_membership" id="yr_of_membership" class="formbold-form-input" >
+             {% for year in year_list %}
+              <option style="text-align:left" value="{{ year }}">{{ year }}</option>
+             {% endfor %}
+            </select>
+              
             </div>
             <div>
               <label for="DOB" class="formbold-form-label">Date Of Birth </label>
@@ -199,7 +204,7 @@ input::-webkit-inner-spin-button {
             
           </div>
       <div>
-          <button id="submit_no" type="submit" class="formbold-btn" style="margin-top:30px" ><b>Submit </b></button>
+          <button id="submit_no" type="submit" class="btn formbold-btn" style="margin-top:30px" ><b>Submit </b></button>
       </div>
     </form>
   </div>
