@@ -79,7 +79,6 @@ WSGI_APPLICATION = 'Personal_Info.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-<<<<<<< HEAD
  'default': {  
          'ENGINE': 'django.db.backends.mysql',  
          'NAME': 'icai_members',  
@@ -89,21 +88,6 @@ DATABASES = {
          'PORT': '3306',  
        
      }      
-=======
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
-'default': {  
-        'ENGINE': 'django.db.backends.mysql',  
-        'NAME': 'icai_members',  
-        'USER': 'root',  
-        'PASSWORD': 'Akshay29!',  
-        'HOST': 'icaimembers.cotbwwzlwsbz.ap-south-1.rds.amazonaws.com',  
-        'PORT': '3306',  
-        
-    }      
->>>>>>> 44a5824ee73c8b59322cec492e130fb14324c55f
 }
 
 
