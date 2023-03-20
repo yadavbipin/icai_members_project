@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-b2zij79pl(p(ia@3&nnhhy_(3rk8%+k^^r9o11qaqbfru)*(-*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['13.233.58.143']
 
 
 # Application definition
@@ -79,19 +79,15 @@ WSGI_APPLICATION = 'Personal_Info.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-# 'default': {  
-#         'ENGINE': 'django.db.backends.mysql',  
-#         'NAME': 'icai_members',  
-#         'USER': 'root',  
-#         'PASSWORD': 'Akshay29!',  
-#         'HOST': 'icaimembers.cotbwwzlwsbz.ap-south-1.rds.amazonaws.com',  
-#         'PORT': '3306',  
-        
-#     }      
+ 'default': {  
+         'ENGINE': 'django.db.backends.mysql',  
+         'NAME': 'icai_members',  
+         'USER': 'root',  
+         'PASSWORD': 'Akshay29!',  
+         'HOST': 'icaimembers.cotbwwzlwsbz.ap-south-1.rds.amazonaws.com',  
+         'PORT': '3306',  
+       
+     }      
 }
 
 
