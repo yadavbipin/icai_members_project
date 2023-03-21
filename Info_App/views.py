@@ -101,7 +101,7 @@ def validate_no(request):
         elif membership_num in info_list:
             #fetch info corresponding entered membershipnumber
             fetch_info=form_submission.objects.get(membership_number=membership_num)
-            if yr_of_membership != fetch_info.year_of_membership or Birth_date != fetch_info.DOB:
+            if yr_of_membership != fetch_info.year_of_membership or Birth_date != str(fetch_info.DOB):
                 messages.error(request,"Membership Number already exists, Please enter correct Membership Year and/or DOB to View/Edit your details")
                 return redirect('Info_App:validate_no')
             else:
