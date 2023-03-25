@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form action="{% url 'Info_App:validate_no' %}" method="POST">{% csrf_token %}
+                    <form action="{% url 'Info_App:validate_no' %}" method="POST" autocomplete="off">{% csrf_token %}
                         <div class="form-row">
                             <div class="value">
                               <div class="name">Membership Number</div>
