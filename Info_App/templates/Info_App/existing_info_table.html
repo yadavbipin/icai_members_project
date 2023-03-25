@@ -6,275 +6,177 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>form</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>ICAI_Directory</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>  
 
 
     <style>
 body{
     font-family: Calibri
   }
+  h6{
+    font-weight:900;
+  }
+  .informations{
+    font-weight:800;
+  }
 </style>
   </head>
 <body>
-    <div class="container">
-        <div class="row">
-          <div class="row justify-content-center">
-            <div class="col-md-6 text-center mb-2 mt-4">
-              <h2 class="heading-section" style="text-decoration:underline">Your Submitted Data</h2>
-            </div>
+      <div class="container"  >
+        <div class="row ">
+          <div class="col-md-12 col-lg-12 col-12 col-sm-12 text-center mb-2 mt-4">
+            <h2 class="heading-section" style="text-decoration:underline">Your Submitted Data</h2>
           </div>
-            <div class="card" style="box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;border:none">
-                <div class="card-body" >
-                    {% comment %} <table class="table table-bordered">
-                       
-                        <tbody>
-                          <tr>
-                            <td scope="row">1</th>
-                            <td scope="col">Full Name</th>
-                            <td scope="col">{{fetch_info.member_firstname}} {{fetch_info.member_middlename}} {{fetch_info.member_lastname}}</td>                            
-                          </tr>
-                          <tr>
-                            <td scope="row">2</th>
-                            <td scope="col">Membership Number</th>
-                            <td scope="col">{{fetch_info.membership_number}}</td>                                                      
-                          </tr>
-                          <tr>
-                            <td scope="row">3</th>
-                            <td scope="col">Membership Year</th>
-                            <td scope="col">{{fetch_info.year_of_membership}}</td>                                                      
-                          </tr>
-                          <tr>
-                            <td scope="row">4</th>
-                            <td scope="col">Date Of Birth</th>
-                            <td scope="col">{{fetch_info.DOB}}</td>                                                      
-                          </tr>
-                          <tr>
-                            <td scope="row">5</th>
-                            <td scope="col">Date Of Marriage</th>
-                            <td scope="col">{{fetch_info.DOM}} </td>                                                      
-                          </tr>
-                          <tr>
-                            <td scope="row">6</th>
-                            <td scope="col">Blood Group</th>
-                            <td scope="col">{{fetch_info.blood_group}}</td>                                                      
-                          </tr>
-                          <tr>
-                            <td scope="row">7</th>
-                            <td scope="col">Residential Address</th>
-                            <td scope="col">{{fetch_info.residential_address}}, {{fetch_info.residential_area}}, {{fetch_info.residential_city}} - {{fetch_info.residential_pin_code}}</td>                                                      
-                          </tr>
-                          <tr>
-                            <td scope="row">8</th>
-                            <td scope="col">Do You Hold A Certificate Of Practice?</th>
-                            <td scope="col">{{fetch_info.holding_COP}}</td>                                                      
-                          </tr>
-                          <tr>
-                            <td scope="row">9</th>
-                            <td scope="col">Photo</th>
-                            <td scope="col">{{fetch_info.photo}}</td>                                                      
-                          </tr>
-                          <tr>
-                            <td scope="row">10</th>
-                            <td scope="col">Organization Name</th>
-                            <td scope="col">{{fetch_info.organization}}</td>                                                      
-                          </tr>
-                          <tr>
-                            <td scope="row">11</th>
-                            <td scope="col">Email ID</th>
-                            <td scope="col">{{fetch_info.email_id}} </td>                                                      
-                          </tr>
-                          <tr>
-                            <td scope="row">12</th>
-                            <td scope="col">Phone number</th>
-                            <td scope="col">{{fetch_info.Phone_number}} </td>                                                      
-                          </tr>
-                          <tr>
-                            <td scope="row">13</th>
-                            <td scope="col">Professional Address</th>
-                            <td scope="col">{{fetch_info.prof_address}}, {{fetch_info.prof_area}}, {{fetch_info.prof_city}} - {{fetch_info.prof_pin_code}}</td>                                                      
-                          </tr>
-                        </tbody>
-                      </table> {% endcomment %}
-
-
-                      <section class="wrapper" id="element">
-                        <div class="container-fostrap page-layout" >
-                          <div class="content">
-                            <div class="container" >
-                              <div class="row ">                  
-                                  <div class="col-12 "  >
-                                    <div class="card mt-1" style="font-weight:700" >
-                                      <div class="card-read-more ">
-                                        <div class="row p-2" style="background-color:#251749;margin-left:0px;margin-right:-1px;text-align:left">
-                                          <div class="col-1 " style="color:white;font-size:16px;">
-                                            <span><b>1</b></span>
-                                          </div>
-                                          <div class="col-11" style="">
-                                            <span  class="" style="text-transform: uppercase;font-size:16px;">
-                                              <b style="color:white"><span class="mr-2" style="text-transform: uppercase;font-size:16px;">CA.</span>{{fetch_info.member_lastname}} {{fetch_info.member_firstname}} {{fetch_info.member_middlename}}</b>
-                                            </span>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="row pb-2 pt-2 pr-1" >
-                                        <div class="col-2 ">
-                                          <div class="img-card"  >
-                                          
-                                            {% if fetch_info.new_photo %}  
-                                              <img src="{{fetch_info.new_photo.url}}" alt="{{fetch_info.member_firstname}}" height="130px" width="110px" style="margin-left:20px">
-                                            {% elif fetch_info.new_photo == "" and fetch_info.photo %}
-                                              <img src="{{fetch_info.photo}}" alt="{{fetch_info.member_firstname}}" height="130px" width="110px" style="margin-left:20px">
-                                            {% else %}
-                                            <div class="card " style="width;border:none">
-                                              <div class="card-body">
-                                                <img src="{%static 'Info_App\images\user.png'%}" height="130px" width="110px" style="margin-left:20px"  >
-                                              </div>
-                                            </div> 
-                                            {% endif %}
-                                          </div>
-                                        </div>
-                                        <div class="col-5" >
-                                          <div class="row"  style="text-align:left;margin-bottom:-15px">
-                                            <div class="col-lg-2 col-sm-3" >
-                                              <h6 class="card-title" style="font-size:16px;">Mem No</h6>
-                                            </div>
-                                            <div class="col-1 ">
-                                              <h6 class="card-title" style="font-size:16px">:</h6>
-                                            </div>
-                                            <div class="col-lg-9 col-sm-8">
-                                              <p style="font-size:16px;color:#413F42">{{fetch_info.membership_number}}</p>
-                                            </div>
-                                          </div>
-                                          <div class="row" style="text-align:left;margin-bottom:-15px">
-                                            <div class="col-lg-2 col-sm-3">
-                                              <h6 class="card-title" style="font-size:16px">Mem Yr</h6>
-                                            </div>
-                                            <div class="col-1">
-                                              <h6 class="card-title" style="font-size:16px">:</h6>
-                                            </div>
-                                            <div class="col-lg-9 col-sm-8">
-                                              <p style="font-size:16px;color:#413F42">{{fetch_info.year_of_membership}}</p>
-                                            </div>
-                                          </div>
-                                          <div class="row"  style="text-align:left;margin-bottom:-15px">
-                                            <div class="col-lg-2 col-sm-3" >
-                                              <h6 class="card-title" style="font-size:16px">Firm</h6>
-                                            </div>
-                                            <div class="col-1">
-                                              <h6 class="card-title" style="font-size:16px">:</h6>
-                                            </div>
-                                            <div class="col-lg-9 col-sm-8">
-                                              <p style="font-size:16px;color:#413F42">{{fetch_info.organization}}</p>
-                                            </div>
-                                          </div>
-                                          <div class="row"  style="text-align:left;margin-bottom:-15px">
-                                            <div class="col-lg-2 col-sm-3" >
-                                              <h6 class="card-title" style="font-size:16px">P.Add</h6>
-                                            </div>
-                                            <div class="col-1">
-                                              <h6 class="card-title" style="font-size:16px">:</h6>
-                                            </div>
-                                            <div class="col-lg-9 col-sm-8 link">
-                                              <p style="font-size:16px;color:#413F42">{{fetch_info.prof_address}}, {{fetch_info.prof_area}}, {{fetch_info.prof_city}} - {{fetch_info.prof_pin_code}}</p>
-                                            </div>
-                                          </div>
-                                          <div class="row"  style="text-align:left;margin-bottom:-15px">
-                                            <div class="col-lg-2 col-sm-3" >
-                                              <h6 class="card-title" style="font-size:16px">Ph.No.</h6>
-                                            </div>
-                                            <div class="col-1">
-                                              <h6 class="card-title" style="font-size:16px">:</h6>
-                                            </div>
-                                            <div class="col-lg-9 col-sm-8">
-                                              <b><p style="font-size:16px;color:#413F42">{{fetch_info.Phone_number}}</p></b>
-                                            </div>
-                                          </div>
-                                        </div>
-                                        <div class="col-5">    
-                                          <div class="row" style="text-align:left;margin-bottom:-15px">
-                                            <div class="col-lg-2 col-sm-3">
-                                              <h6 class="card-title" style="font-size:16px">DOB</h6>
-                                            </div>
-                                            <div class="col-1">
-                                              <h6 class="card-title" style="font-size:16px">:</h6>
-                                            </div>
-                                            <div class="col-lg-9 col-sm-8">
-                                              <p style="font-size:16px;color:#413F42">{{fetch_info.DOB}}</p>
-                                            </div>
-                                          </div>
-                                          <div class="row" style="text-align:left;margin-bottom:-15px">
-                                            <div class="col-lg-2 col-sm-3">
-                                              <h6 class="card-title" style="font-size:16px">DOM</h6>
-                                            </div>
-                                            <div class="col-1">
-                                              <h6 class="card-title" style="font-size:16px">:</h6>
-                                            </div>
-                                            <div class="col-lg-9 col-sm-8">
-                                              <p style="font-size:16px;color:#413F42">{{fetch_info.DOM|date:'M d'}}</p>
-                                            </div>
-                                          </div>
-                                          <div class="row" style="text-align:left;margin-bottom:-15px">
-                                            <div class="col-lg-2 col-sm-3">
-                                              <h6 class="card-title" style="font-size:16px">Bld Gr</h6>
-                                            </div>
-                                            <div class="col-1">
-                                              <h6 class="card-title" style="font-size:16px">:</h6>
-                                            </div>
-                                            <div class="col-lg-9 col-sm-8">
-                                              <p style="font-size:16px;color:#413F42">{{fetch_info.blood_group}}</p>
-                                            </div>
-                                          </div>
-                                          <div class="row" style="text-align:left;margin-bottom:-15px">
-                                            <div class="col-lg-2 col-sm-3">
-                                              <h6 class="card-title" style="font-size:16px">R. Add</h6>
-                                            </div>
-                                            <div class="col-1">
-                                              <h6 class="card-title" style="font-size:16px">:</h6>
-                                            </div>
-                                            <div class="col-lg-9 col-sm-8 link">
-                                              <p style="font-size:16px;color:#413F42">{{fetch_info.residential_address}} {{fetch_info.residential_area}} {{fetch_info.residential_city}}-{{fetch_info.residential_pin_code}}</p>
-                                            </div>
-                                          </div>
-                                          <div class="row"  style="text-align:left;margin-bottom:-15px">
-                                            <div class="col-lg-2 col-sm-3" >
-                                              <h6 class="card-title" style="font-size:16px">Email</h6>
-                                            </div>
-                                            <div class="col-1">
-                                              <h6 class="card-title" style="font-size:16px">:</h6>
-                                            </div>
-                                            <div class="col-lg-9 col-sm-8">
-                                              <b><p style="font-size:16px;color:#413F42">{{fetch_info.email_id}}</p></b>
-                                            </div>
-                                          </div>   
-                                        </div>
-                                      </div>             
-                                    </div>
-                                  </div>
-                                </div>
-                              </section>
-
-
-
-                      <div style="float:right">
-                        <a href="{%url 'Info_App:validate_no' %}" id="edit_info" class="btn btn-light" type="submit"  style="margin-top:30px;padding-left:30px;padding-right:30px;padding-top:10px;padding-bottom:10px;font-size:20px" ><b>Back </b></a>
-                        <a href="{%url 'Info_App:edit_existing_cainfo' fetch_info.id %}" id="edit_info" class="btn " type="submit"  style="margin-top:30px;padding-left:30px;padding-right:30px;padding-top:10px;padding-bottom:10px;font-size:20px;margin-right:25px;background-color:#6A64F1;color:white" ><b>Edit </b></a>
-                    </div>
-                  </div>
-              </div>
-                  
         </div>
+        <div class="row" style="border:1px #251749 solid">          
+            <div class="row p-1 " style="background-color:#251749;color:white;margin-left:0.2px">
+              <div class="col-1 col-sm-1 col-lg-1 col-md-1">
+                <h6>1</h6>
+              </div>
+              <div class="col-11 col-sm-11 col-lg-11 col-md-11">
+                <h6>CA.</span>{{fetch_info.member_lastname}} {{fetch_info.member_firstname}} {{fetch_info.member_middlename}}</h6>
+              </div>
+            </div>   
+          <div class="row informations">
+          <div class="col-12 col-sm-12 col-lg-2 col-md-2" style="text-align:center">
+            <div class="img-card p-1"  >                                   
+              {% if fetch_info.new_photo %}  
+                <img src="{{fetch_info.new_photo.url}}" alt="{{fetch_info.member_firstname}}" height="130px" width="110px" >
+              {% elif fetch_info.new_photo == "" and fetch_info.photo %}
+                <img src="{{fetch_info.photo}}" alt="{{fetch_info.member_firstname}}" height="130px" width="110px" >
+              {% else %}
+              <div class="card " style="width;border:none">
+                <div class="card-body">
+                  <img src="{%static 'Info_App\images\user.png'%}" height="130px" width="110px"  >
+                </div>
+              </div> 
+              {% endif %}
+            </div>
+          </div> 
+          <div class="col-12 col-sm-12 col-lg-5 col-md-5 " >
+                <div class="row">
+                  <div class="col-3 col-sm-3 col-lg-3 col-md-3">
+                    Mem No
+                  </div>
+                  <div class="col-1 col-sm-1 col-lg-1 col-md-1">
+                    <h6 class="card-title">:</h6>
+                  </div>
+                  <div class="col-8 col-sm-8 col-lg-8 col-md-8">
+                    {{fetch_info.membership_number}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-3 col-sm-3 col-lg-3 col-md-3">
+                    Mem Yr
+                  </div>
+                  <div class="col-1 col-sm-1 col-lg-1 col-md-1">
+                    <h6 class="card-title">:</h6>
+                  </div>
+                  <div class="col-8 col-sm-8 col-lg-8 col-md-8">
+                    {{fetch_info.year_of_membership}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-3 col-sm-3 col-lg-3 col-md-3">
+                    Firm
+                  </div>
+                  <div class="col-1 col-sm-1 col-lg-1 col-md-1">
+                    <h6 class="card-title">:</h6>
+                  </div>
+                  <div class="col-8 col-sm-8 col-lg-8 col-md-8">
+                    {{fetch_info.organization}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-3 col-sm-3 col-lg-3 col-md-3">
+                    P.Add
+                  </div>
+                  <div class="col-1 col-sm-1 col-lg-1 col-md-1">
+                    <h6 class="card-title">:</h6>
+                  </div>
+                  <div class="col-8 col-sm-8 col-lg-8 col-md-8">
+                    {{fetch_info.prof_address}}, {{fetch_info.prof_area}}, {{fetch_info.prof_city}} - {{fetch_info.prof_pin_code}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-3 col-sm-3 col-lg-3 col-md-3">
+                    Ph.No.
+                  </div>
+                  <div class="col-1 col-sm-1 col-lg-1 col-md-1">
+                    <h6 class="card-title">:</h6>
+                  </div>
+                  <div class="col-8 col-sm-8 col-lg-8 col-md-8">
+                    {{fetch_info.Phone_number}}
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-12 col-lg-5 col-md-5" >
+                <div class="row">
+                  <div class="col-3 col-sm-3 col-lg-3 col-md-3">
+                    DOB
+                  </div>
+                  <div class="col-1 col-sm-1 col-lg-1 col-md-1">
+                    <h6 class="card-title">:</h6>
+                  </div>
+                  <div class="col-8 col-sm-8 col-lg-8 col-md-8">
+                    {{fetch_info.DOB}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-3 col-sm-3 col-lg-3 col-md-3">
+                    DOM
+                  </div>
+                  <div class="col-1 col-sm-1 col-lg-1 col-md-1">
+                    <h6 class="card-title">:</h6>
+                  </div>
+                  <div class="col-8 col-sm-8 col-lg-8 col-md-8">
+                    {{fetch_info.DOM}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-3 col-sm-3 col-lg-3 col-md-3">
+                    Bld Grp
+                  </div>
+                  <div class="col-1 col-sm-1 col-lg-1 col-md-1">
+                    <h6 class="card-title">:</h6>
+                  </div>
+                  <div class="col-8 col-sm-8 col-lg-8 col-md-8">
+                    {{fetch_info.blood_group}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-3 col-sm-3 col-lg-3 col-md-3">
+                    R. Add
+                  </div>
+                  <div class="col-1 col-sm-1 col-lg-1 col-md-1">
+                    <h6 class="card-title">:</h6>
+                  </div>
+                  <div class="col-8 col-sm-8 col-lg-8 col-md-8">
+                    {{fetch_info.residential_address}} {{fetch_info.residential_area}} {{fetch_info.residential_city}}-{{fetch_info.residential_pin_code}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-3 col-sm-3 col-lg-3 col-md-3">
+                    Email
+                  </div>
+                  <div class="col-1 col-sm-1 col-lg-1 col-md-1">
+                    <h6 class="card-title">:</h6>
+                  </div>
+                  <div class="col-8 col-sm-8 col-lg-8 col-md-8">
+                    {{fetch_info.email_id}}
+                  </div>
+                </div>
+              </div>
+            </div>
+         
+        </div>
+        <div>
+          <a href="{%url 'Info_App:validate_no' %}" id="edit_info" class="btn btn-light" type="submit"  style="margin-top:30px;padding-left:30px;padding-right:30px;padding-top:10px;padding-bottom:10px;font-size:20px" ><b>Back </b></a>
+          <a href="{%url 'Info_App:edit_existing_cainfo' fetch_info.id %}" id="edit_info" class="btn " type="submit"  style="margin-top:30px;padding-left:30px;padding-right:30px;padding-top:10px;padding-bottom:10px;font-size:20px;margin-right:25px;background-color:#4272D7;color:white" ><b>Edit </b></a>
       </div>
- 
 
-
-
-
-
-     
-      
+      </div>
 
   </body>
 </html> 
