@@ -17,28 +17,9 @@ from django.core.files.storage import default_storage
 #datetime field convert
 from datetime import datetime
 
+#404 page
+from django.http import Http404
 
-
-# Create your views here.
-# def index(request):  
-#     # fetching all post objects from database 
-#     all_info=Personal_Info.objects.all()
-#     # creating a paginator object
-#     paginator=Paginator(all_info,8)
-#     # getting the desired page number from url
-#     page_number=request.GET.get('page')
-#     # returns the desired page object
-#     try:
-#         page_obj = paginator.get_page(page_number) 
-#     except PageNotAnInteger:
-#         # if page_number is not an integer then assign the first page
-#         page_obj = paginator.page(1)
-#     except EmptyPage:
-#         # if page is empty then return last page
-#         page_obj = paginator.page(paginator.num_pages)
-    
-#     context={'all_info':all_info,'page_obj': page_obj}
-#     return render(request,'Info_App/index.html',context)
 
 
 
@@ -139,8 +120,12 @@ def submit_cainfo(request):
     return render(request,'Info_App/validate_no.html')
 
 
-def edit_existing_cainfo(request, ca_id):
-    mymodel =form_submission.objects.get(id=ca_id)
+def edit_existing_cainfo(request, ca_id,random_no, mem_no ):
+    try:
+        mymodel = form_submission.objects.get(id=ca_id, membership_number=mem_no)
+    except form_submission.DoesNotExist:
+        raise Http404("The requested CA info does not exist.")
+
     if request.method == 'POST':
         # get the new image from the request
         member_firstname = request.POST.get('member_firstname')
@@ -225,5 +210,7 @@ def edit_existing_cainfo(request, ca_id):
 
 
 def existing_info_table(request):
-    return render(request,'Info_App/existing_info_table.html')
+    current_year = datetime.now().year
+    year_list = list(range(1980, current_year+1))
+    return render(request,'Info_App/validate_no.html',{'year_list': year_list})
 

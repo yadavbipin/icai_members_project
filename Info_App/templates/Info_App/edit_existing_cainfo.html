@@ -364,7 +364,7 @@
                       
               
                       $.ajax({
-                          url: '{% url "Info_App:edit_existing_cainfo" mymodel.id %}',
+                          url: '{% url "Info_App:edit_existing_cainfo" mymodel.id 647809 mymodel.membership_number %}',
                           type: 'POST',
                           data: formData,
                           processData: false,
