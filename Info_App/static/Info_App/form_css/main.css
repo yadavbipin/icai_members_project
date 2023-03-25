@@ -900,3 +900,13 @@ input::-webkit-inner-spin-button {
 .ui-datepicker-buttonpane button + button {
   margin-left: 0.5em;
 }
+
+/* image mobile view css*/
+.imagefld {
+  text-align:right;
+}
+@media (max-width: 767px) {
+  .imagefld {
+    text-align:left;
+  }
+}
