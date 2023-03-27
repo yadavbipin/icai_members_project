@@ -74,7 +74,7 @@ def validate_no(request):
     
     #Year pass to html membership year dropdown
     current_year = datetime.now().year
-    year_list = list(range(1980, current_year+1))
+    year_list = list(range(1950, current_year+1))
     return render(request,'Info_App/validate_no.html',{'year_list': year_list})
 
 
@@ -211,6 +211,6 @@ def edit_existing_cainfo(request, ca_id,random_no, mem_no ):
 
 def existing_info_table(request):
     current_year = datetime.now().year
-    year_list = list(range(1980, current_year+1))
+    year_list = list(range(1950, current_year+1))
     return render(request,'Info_App/validate_no.html',{'year_list': year_list})
 
