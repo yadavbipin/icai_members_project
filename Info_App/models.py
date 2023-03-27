@@ -37,9 +37,9 @@ class Personal_Info(models.Model):
 # )
 class form_submission(models.Model):
     id=models.AutoField(primary_key=True)
-    member_firstname = models.CharField(max_length=100,blank=True, null=True)
-    member_middlename = models.CharField(max_length=100,blank=True, null=True)
-    member_lastname = models.CharField(max_length=100,blank=True, null=True)
+    member_firstname = models.CharField(max_length=100,blank=True, null=True,default='')
+    member_middlename = models.CharField(max_length=100,blank=True, null=True, default='')
+    member_lastname = models.CharField(max_length=100,blank=True, null=True, default='')
     membership_number=models.CharField(max_length=100,blank=True, null=True)
     year_of_membership=models.CharField(max_length=100,blank=True, null=True)
     Phone_number=models.CharField(max_length=100,blank=True, null=True)
