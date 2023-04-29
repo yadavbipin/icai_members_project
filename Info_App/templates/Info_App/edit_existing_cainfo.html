@@ -38,7 +38,7 @@
                             </div>
                         </div>
                     </div> 
-                    <div class="form-row">
+                    {% comment %} <div class="form-row">
                       <div class="value">
                           <div class="row row-space">
                             <div class="col-2">
@@ -55,8 +55,8 @@
                               </div>     
                           </div>
                       </div>
-                  </div>
-                  <div class="form-row">
+                  </div> {% endcomment %}
+                  {% comment %} <div class="form-row">
                     <div class="value">
                         <div class="row row-space">
                             <div class="col-1">
@@ -93,7 +93,7 @@
                             </div> 
                         </div>
                     </div>
-                </div>
+                </div> {% endcomment %}
                   <div class="form-row">
                             <div class="value">
                               <div class="name">Residential Address</div>
@@ -102,7 +102,7 @@
                               </div>
                             </div>
                     </div>
-                    <div class="form-row">
+                    {% comment %} <div class="form-row">
                             <div class="value">
                                 <div class="row row-space">
                                     <div class="col-1">
@@ -130,8 +130,8 @@
                                     
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-row ">
+                        </div> {% endcomment %}
+                        {% comment %} <div class="form-row ">
                           <div class="value">
                               <div class="row row-space">
                                 <div class="col-1">
@@ -168,15 +168,15 @@
                                       {% endif %}      
                                     </div>
                                   </div>   
-                                  {% comment %} <div class="col-1">
+                                  <div class="col-1">
                                     <div class="name">Choose Photo</div>
                                       <div class="input-group-desc">
                                         <input type="file" name="photo" id="photo" class="input--style-5" style="font-size:14px;" accept=".png, .jpg, .jpeg"/ >
                                       </div>
-                                  </div>     {% endcomment %}
+                                  </div>    
                               </div>
                           </div>
-                      </div>
+                      </div> {% endcomment %}
                       <hr style="margin-left:200px"><h4 style="margin-top:-10px"><b>Professional Information</b></h4><br>
                       <div class="form-row">
                         <div class="value">
@@ -186,7 +186,7 @@
                           </div>
                         </div>
                        </div>
-                      <div class="form-row">
+                      {% comment %} <div class="form-row">
                         <div class="value">
                             <div class="row row-space">
                               <div class="col-2">
@@ -203,7 +203,7 @@
                                 </div>     
                             </div>
                         </div>
-                    </div>    
+                    </div>     {% endcomment %}
                     <div class="form-row">
                       <div class="value">
                         <div class="name">Professional Address</div>
@@ -212,7 +212,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="form-row">
+                      {% comment %} <div class="form-row">
                               <div class="value">
                                   <div class="row row-space">
                                       <div class="col-1">
@@ -236,7 +236,7 @@
                                       
                                   </div>
                               </div>
-                          </div>
+                          </div> {% endcomment %}
                         <div>
                             <button type="submit"   class="btn btn--radius-2 btn--blue" >Update Info</button>
                         </div>
@@ -269,14 +269,14 @@
     </script> 
   
       
-    <!--membership number-->
+    {% comment %} <!--membership number-->
     <script>
       $( document ).ready(function() {
         let member_number=$('#membership_number').val();
         let result = member_number.toString().padStart(6, '0')
         $("input#membership_number").val(result);
      });
-    </script> 
+    </script>  {% endcomment %}
     
     
     
@@ -300,36 +300,26 @@
               var member_middlename=$('#member_middlename').val();
               var member_lastname=$('#member_lastname').val();
               var organization=$('#organization').val();
-              var year_of_membership=$('#year_of_membership').val();
-              var membership_number=$('#membership_number').val();
+              {% comment %} var year_of_membership=$('#year_of_membership').val();
+              var membership_number=$('#membership_number').val(); {% endcomment %}
               var prof_address=$('#prof_address').val();
-              var prof_area=$('#prof_area').val();
+              {% comment %} var prof_area=$('#prof_area').val();
               var prof_city=$('#prof_city').val();
               var prof_pin_code=$('#prof_pin_code').val();
-              var blood_group=$('#blood_group').val();
+              var blood_group=$('#blood_group').val(); {% endcomment %}
               var residential_address=$('#residential_address').val();
-              var residential_area=$('#residential_area').val();
+              {% comment %} var residential_area=$('#residential_area').val();
               var residential_city=$('#residential_city').val();
               var residential_pin_code=$('#residential_pin_code').val();
               var email_id=$('#email_id').val();
               var Phone_number=$('#Phone_number').val();
               var holding_COP=$('#holding_COP').val();
-              {% comment %} var photo=$('#photo').val(); {% endcomment %}
+              var photo=$('#photo').val(); {% endcomment %}
                 
-              if (member_firstname == ''|| member_middlename == '' || member_lastname == '' || organization == ''|| membership_number == ''|| year_of_membership == ''|| prof_address == ''
-              || prof_area == ''|| prof_city == ''|| prof_pin_code == ''|| DOB == ''|| blood_group == '' || residential_address=='' || residential_area==''
-              || residential_city == ''|| residential_pin_code == ''|| email_id == ''|| Phone_number == ''|| holding_COP == '') {
+              if (member_firstname == ''|| member_middlename == '' || member_lastname == '' || prof_address == ''
+              residential_address=='' 
+              ) {
                   alert("Please fill all fields")
-              }else if(isNaN(Phone_number)){
-                  alert("insert a number");
-              }else if((Phone_number.charAt(0)!=9) && (Phone_number.charAt(0)!=8) && (Phone_number.charAt(0)!=7)){
-                  alert('Mobile number must start with 9 ,8 ,7 or 6');
-              }else if(Phone_number.length!==10){
-                  alert('Please put 10  digit mobile number');
-              }else if(prof_pin_code.length!=6 || residential_pin_code.length!=6){
-                alert('Please Enter 6 digit pin code');
-              }else if(DOM != '' && DOB > DOM){
-                alert('Please check your date fields ');
               }else{
     
     
@@ -341,23 +331,23 @@
                       formData.append('member_middlename', $('#member_middlename').val());
                       formData.append('member_lastname', $('#member_lastname').val());
                       formData.append('organization', $('#organization').val());
-                      formData.append('membership_number', $('#membership_number').val());
-                      formData.append('year_of_membership', $('#year_of_membership').val());
+                      {% comment %} formData.append('membership_number', $('#membership_number').val());
+                      formData.append('year_of_membership', $('#year_of_membership').val()); {% endcomment %}
                       formData.append('prof_address', $('#prof_address').val());
-                      formData.append('prof_area', $('#prof_area').val());
+                      {% comment %} formData.append('prof_area', $('#prof_area').val());
                       formData.append('prof_city', $('#prof_city').val());
                       formData.append('prof_pin_code', $('#prof_pin_code').val());
                       formData.append('DOB', $('#DOB').val());
                       formData.append('DOM', $('#DOM').val());
-                      formData.append('blood_group', $('#blood_group').val());
+                      formData.append('blood_group', $('#blood_group').val()); {% endcomment %}
                       formData.append('residential_address', $('#residential_address').val());
-                      formData.append('residential_area', $('#residential_area').val());
+                      {% comment %} formData.append('residential_area', $('#residential_area').val());
                       formData.append('residential_city', $('#residential_city').val());
                       formData.append('residential_pin_code', $('#residential_pin_code').val());
                       formData.append('email_id', $('#email_id').val());
                       formData.append('Phone_number', $('#Phone_number').val());
                       formData.append('holding_COP', $('#holding_COP').val());
-                      {% comment %} formData.append('photo', $('#photo')[0].files[0]); {% endcomment %}
+                      formData.append('photo', $('#photo')[0].files[0]); {% endcomment %}
                       
               
                       $.ajax({
