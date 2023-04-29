@@ -357,9 +357,11 @@
                           processData: false,
                           contentType: false,
                           success: function(response) {
+                            if (response.success) {
                               alert('Form update successfully');
                               document.getElementById("edit_ca_form").reset();
                               window.location.href = "/";
+                            }
                           },
                           error: function(xhr, status, error) {
                             alert("Error submitting form: " + error);
