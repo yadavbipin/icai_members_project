@@ -168,12 +168,12 @@
                                       {% endif %}      
                                     </div>
                                   </div>   
-                                  <div class="col-1">
+                                  {% comment %} <div class="col-1">
                                     <div class="name">Choose Photo</div>
                                       <div class="input-group-desc">
                                         <input type="file" name="photo" id="photo" class="input--style-5" style="font-size:14px;" accept=".png, .jpg, .jpeg"/ >
                                       </div>
-                                  </div>    
+                                  </div>     {% endcomment %}
                               </div>
                           </div>
                       </div>
@@ -314,7 +314,7 @@
               var email_id=$('#email_id').val();
               var Phone_number=$('#Phone_number').val();
               var holding_COP=$('#holding_COP').val();
-              var photo=$('#photo').val();
+              {% comment %} var photo=$('#photo').val(); {% endcomment %}
                 
               if (member_firstname == ''|| member_middlename == '' || member_lastname == '' || organization == ''|| membership_number == ''|| year_of_membership == ''|| prof_address == ''
               || prof_area == ''|| prof_city == ''|| prof_pin_code == ''|| DOB == ''|| blood_group == '' || residential_address=='' || residential_area==''
@@ -357,7 +357,7 @@
                       formData.append('email_id', $('#email_id').val());
                       formData.append('Phone_number', $('#Phone_number').val());
                       formData.append('holding_COP', $('#holding_COP').val());
-                      formData.append('photo', $('#photo')[0].files[0]);
+                      {% comment %} formData.append('photo', $('#photo')[0].files[0]); {% endcomment %}
                       
               
                       $.ajax({

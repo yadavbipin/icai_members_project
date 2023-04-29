@@ -148,10 +148,10 @@ def edit_existing_cainfo(request, ca_id,random_no, mem_no ):
         email_id = request.POST.get('email_id')
         organization = request.POST.get('organization')
         holding_COP = request.POST.get('holding_COP')  
-        if request.FILES.get('photo')=="":
-          new_image =mymodel.photo
-        else:
-          new_image = request.FILES.get('photo')
+        # if request.FILES.get('photo')=="":
+        #   new_image =mymodel.photo
+        # else:
+        #   new_image = request.FILES.get('photo')
           
         # date field convert to yyyy-mm-dd formate
         try:
@@ -167,15 +167,15 @@ def edit_existing_cainfo(request, ca_id,random_no, mem_no ):
         DOM_date_str = date_dom.strftime('%Y-%m-%d')
 
         # if a new image was provided, update the model's image field
-        if new_image:
-            # save the new image to disk
-            filename = default_storage.save(new_image.name, ContentFile(new_image.read()))
+        # if new_image:
+        #     # save the new image to disk
+        #     filename = default_storage.save(new_image.name, ContentFile(new_image.read()))
 
-            # delete the old image
-            mymodel.new_photo.delete()
+        #     # delete the old image
+        #     mymodel.new_photo.delete()
 
-            # update the model's image field with the new image
-            mymodel.new_photo.save(filename, new_image)
+        #     # update the model's image field with the new image
+        #     mymodel.new_photo.save(filename, new_image)
 
         # update any other fields on the model as needed
         mymodel.member_firstname = member_firstname
