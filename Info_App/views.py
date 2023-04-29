@@ -135,47 +135,47 @@ def edit_existing_cainfo(request, ca_id,random_no, mem_no ):
         # year_of_membership = request.POST.get('year_of_membership')
         # Phone_number = request.POST.get('Phone_number')
         prof_address = request.POST.get('prof_address')
-        # prof_area = request.POST.get('prof_area')
-        # prof_city = request.POST.get('prof_city')
+        prof_area = request.POST.get('prof_area')
+        prof_city = request.POST.get('prof_city')
         # prof_pin_code = request.POST.get('prof_pin_code')
         residential_address = request.POST.get('residential_address')
-        # residential_area = request.POST.get('residential_area')
-        # residential_city = request.POST.get('residential_city')
+        residential_area = request.POST.get('residential_area')
+        residential_city = request.POST.get('residential_city')
         # residential_pin_code = request.POST.get('residential_pin_code')
-        # blood_group = request.POST.get('blood_group')
-        # Date_Of_Birth = request.POST.get('DOB')
-        # Date_of_Marriage = request.POST.get('DOM')
-        # email_id = request.POST.get('email_id')
+        blood_group = request.POST.get('blood_group')
+        Date_Of_Birth = request.POST.get('DOB')
+        Date_of_Marriage = request.POST.get('DOM')
+        email_id = request.POST.get('email_id')
         organization = request.POST.get('organization')
-        # holding_COP = request.POST.get('holding_COP')  
-        # if request.FILES.get('photo')=="":
-        #   new_image =mymodel.photo
-        # else:
-        #   new_image = request.FILES.get('photo')
+        holding_COP = request.POST.get('holding_COP')  
+        if request.FILES.get('photo')=="":
+          new_image =mymodel.photo
+        else:
+          new_image = request.FILES.get('photo')
           
         # date field convert to yyyy-mm-dd formate
-        # try:
-        #     date_dob = datetime.strptime(Date_Of_Birth, '%m/%d/%Y')
-        # except ValueError:
-        #     date_dob = datetime.strptime(Date_Of_Birth, '%B %d, %Y')
-        # DOB_date_str = date_dob.strftime('%Y-%m-%d')
+        try:
+            date_dob = datetime.strptime(Date_Of_Birth, '%m/%d/%Y')
+        except ValueError:
+            date_dob = datetime.strptime(Date_Of_Birth, '%B %d, %Y')
+        DOB_date_str = date_dob.strftime('%Y-%m-%d')
 
-        # try:
-        #     date_dom = datetime.strptime(Date_of_Marriage, '%m/%d/%Y')
-        # except ValueError:
-        #     date_dom = datetime.strptime(Date_of_Marriage, '%B %d, %Y')
-        # DOM_date_str = date_dom.strftime('%Y-%m-%d')
+        try:
+            date_dom = datetime.strptime(Date_of_Marriage, '%m/%d/%Y')
+        except ValueError:
+            date_dom = datetime.strptime(Date_of_Marriage, '%B %d, %Y')
+        DOM_date_str = date_dom.strftime('%Y-%m-%d')
 
         # if a new image was provided, update the model's image field
-        # if new_image:
-        #     # save the new image to disk
-        #     filename = default_storage.save(new_image.name, ContentFile(new_image.read()))
+        if new_image:
+            # save the new image to disk
+            filename = default_storage.save(new_image.name, ContentFile(new_image.read()))
 
-        #     # delete the old image
-        #     mymodel.new_photo.delete()
+            # delete the old image
+            mymodel.new_photo.delete()
 
-        #     # update the model's image field with the new image
-        #     mymodel.new_photo.save(filename, new_image)
+            # update the model's image field with the new image
+            mymodel.new_photo.save(filename, new_image)
 
         # update any other fields on the model as needed
         mymodel.member_firstname = member_firstname
@@ -185,19 +185,21 @@ def edit_existing_cainfo(request, ca_id,random_no, mem_no ):
         # mymodel.year_of_membership = year_of_membership
         # mymodel.Phone_number = Phone_number
         mymodel.prof_address = prof_address
-        # mymodel.prof_area = prof_area
-        # mymodel.prof_city = prof_city
+        mymodel.prof_area = prof_area
+        mymodel.prof_city = prof_city
         # mymodel.prof_pin_code = prof_pin_code
         mymodel.residential_address = residential_address
-        # mymodel.residential_area = residential_area
-        # mymodel.residential_city = residential_city
+        mymodel.residential_area = residential_area
+        mymodel.residential_city = residential_city
         # mymodel.residential_pin_code = residential_pin_code
-        # mymodel.blood_group = blood_group
-        # mymodel.DOB = DOB_date_str
-        # mymodel.DOM = DOM_date_str
-        # mymodel.email_id = email_id
+        mymodel.blood_group = blood_group
+        mymodel.DOB = DOB_date_str
+        mymodel.DOM = DOM_date_str
+        mymodel.email_id = email_id
         mymodel.organization = organization
-        # mymodel.holding_COP = holding_COP
+        mymodel.member_firstname = member_firstname
+        mymodel.member_firstname = member_firstname
+        mymodel.holding_COP = holding_COP
         mymodel.save()
 
         return JsonResponse({'success': True})

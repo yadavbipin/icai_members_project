@@ -38,25 +38,25 @@
                             </div>
                         </div>
                     </div> 
-                    {% comment %} <div class="form-row">
+                    <div class="form-row">
                       <div class="value">
                           <div class="row row-space">
-                            <div class="col-2">
+                            {% comment %} <div class="col-2">
                               <div class="name">Membership Number</div>
                                 <div class="input-group-desc">
                                     <input class="input--style-5 " type="number" name="membership_number" id="membership_number" value="{{mymodel.membership_number}}"   >
                                   </div>
-                            </div>
-                              <div class="col-2">
+                            </div> {% endcomment %}
+                              {% comment %} <div class="col-2">
                                 <div class="name">Membership Year</div>
                                   <div class="input-group-desc">
                                     <input type="number"  name="year_of_membership" id="year_of_membership"  class="input--style-5"  value="{{mymodel.year_of_membership}}">
                                   </div>
-                              </div>     
+                              </div>      {% endcomment %}
                           </div>
                       </div>
-                  </div> {% endcomment %}
-                  {% comment %} <div class="form-row">
+                  </div>
+                  <div class="form-row">
                     <div class="value">
                         <div class="row row-space">
                             <div class="col-1">
@@ -93,7 +93,7 @@
                             </div> 
                         </div>
                     </div>
-                </div> {% endcomment %}
+                </div>
                   <div class="form-row">
                             <div class="value">
                               <div class="name">Residential Address</div>
@@ -102,7 +102,7 @@
                               </div>
                             </div>
                     </div>
-                    {% comment %} <div class="form-row">
+                    <div class="form-row">
                             <div class="value">
                                 <div class="row row-space">
                                     <div class="col-1">
@@ -121,17 +121,17 @@
                                           <input class="input--style-5" type="text"  name="residential_city" id="residential_city" value="{{mymodel.residential_city}}"/>
                                         </div>
                                     </div>
-                                    <div class="col-1">
+                                    {% comment %} <div class="col-1">
                                       <div class="name">Zip Code</div>
                                         <div class="input-group-desc">
                                           <input class="input--style-5" type="number" name="residential_pin_code" id="residential_pin_code" value="{{mymodel.residential_pin_code}}">
                                         </div>
-                                    </div>
+                                    </div> {% endcomment %}
                                     
                                 </div>
                             </div>
-                        </div> {% endcomment %}
-                        {% comment %} <div class="form-row ">
+                        </div>
+                        <div class="form-row ">
                           <div class="value">
                               <div class="row row-space">
                                 <div class="col-1">
@@ -176,7 +176,7 @@
                                   </div>    
                               </div>
                           </div>
-                      </div> {% endcomment %}
+                      </div>
                       <hr style="margin-left:200px"><h4 style="margin-top:-10px"><b>Professional Information</b></h4><br>
                       <div class="form-row">
                         <div class="value">
@@ -186,7 +186,7 @@
                           </div>
                         </div>
                        </div>
-                      {% comment %} <div class="form-row">
+                      <div class="form-row">
                         <div class="value">
                             <div class="row row-space">
                               <div class="col-2">
@@ -195,15 +195,15 @@
                                     <input type="email" name="email_id" id="email_id" class="input--style-5" value="{{mymodel.email_id}}"/>
                                   </div>
                               </div>
-                                <div class="col-2">
+                                {% comment %} <div class="col-2">
                                   <div class="name">Phone Number</div>
                                     <div class="input-group-desc">
                                       <input type="number"   name="Phone_number" id="Phone_number" class="input--style-5" value="{{mymodel.Phone_number}}"/>
                                     </div>
-                                </div>     
+                                </div>      {% endcomment %}
                             </div>
                         </div>
-                    </div>     {% endcomment %}
+                    </div>    
                     <div class="form-row">
                       <div class="value">
                         <div class="name">Professional Address</div>
@@ -212,7 +212,7 @@
                           </div>
                         </div>
                       </div>
-                      {% comment %} <div class="form-row">
+                      <div class="form-row">
                               <div class="value">
                                   <div class="row row-space">
                                       <div class="col-1">
@@ -227,16 +227,16 @@
                                             <input type="text" name="prof_city" id="prof_city" class="input--style-5" value="{{mymodel.prof_city}}"/>
                                           </div>
                                       </div>
-                                      <div class="col-1">
+                                      {% comment %} <div class="col-1">
                                         <div class="name">Zip Code</div>
                                           <div class="input-group-desc">
                                             <input type="number" name="prof_pin_code" id="prof_pin_code" class="input--style-5" value="{{mymodel.prof_pin_code}}"/>
                                           </div>
-                                      </div>
+                                      </div> {% endcomment %}
                                       
                                   </div>
                               </div>
-                          </div> {% endcomment %}
+                          </div>
                         <div>
                             <button type="submit"   class="btn btn--radius-2 btn--blue" >Update Info</button>
                         </div>
@@ -269,14 +269,14 @@
     </script> 
   
       
-    {% comment %} <!--membership number-->
+    <!--membership number-->
     <script>
       $( document ).ready(function() {
         let member_number=$('#membership_number').val();
         let result = member_number.toString().padStart(6, '0')
         $("input#membership_number").val(result);
      });
-    </script>  {% endcomment %}
+    </script> 
     
     
     
@@ -303,22 +303,22 @@
               {% comment %} var year_of_membership=$('#year_of_membership').val();
               var membership_number=$('#membership_number').val(); {% endcomment %}
               var prof_address=$('#prof_address').val();
-              {% comment %} var prof_area=$('#prof_area').val();
+              var prof_area=$('#prof_area').val();
               var prof_city=$('#prof_city').val();
-              var prof_pin_code=$('#prof_pin_code').val();
-              var blood_group=$('#blood_group').val(); {% endcomment %}
+              {% comment %} var prof_pin_code=$('#prof_pin_code').val(); {% endcomment %}
+              var blood_group=$('#blood_group').val();
               var residential_address=$('#residential_address').val();
-              {% comment %} var residential_area=$('#residential_area').val();
+              var residential_area=$('#residential_area').val();
               var residential_city=$('#residential_city').val();
-              var residential_pin_code=$('#residential_pin_code').val();
+              {% comment %} var residential_pin_code=$('#residential_pin_code').val(); {% endcomment %}
               var email_id=$('#email_id').val();
-              var Phone_number=$('#Phone_number').val();
+              {% comment %} var Phone_number=$('#Phone_number').val(); {% endcomment %}
               var holding_COP=$('#holding_COP').val();
-              var photo=$('#photo').val(); {% endcomment %}
+              var photo=$('#photo').val();
                 
-              if (member_firstname == ''|| member_middlename == '' || member_lastname == '' || prof_address == ''
-              residential_address=='' 
-              ) {
+              if (member_firstname == ''|| member_middlename == '' || member_lastname == '' || organization == ''|| prof_address == ''
+              || prof_area == ''|| prof_city == ''|| DOB == ''|| blood_group == '' || residential_address=='' || residential_area==''
+              || residential_city == ''|| email_id == ''|||| holding_COP == '') {
                   alert("Please fill all fields")
               }else{
     
@@ -334,20 +334,20 @@
                       {% comment %} formData.append('membership_number', $('#membership_number').val());
                       formData.append('year_of_membership', $('#year_of_membership').val()); {% endcomment %}
                       formData.append('prof_address', $('#prof_address').val());
-                      {% comment %} formData.append('prof_area', $('#prof_area').val());
+                      formData.append('prof_area', $('#prof_area').val());
                       formData.append('prof_city', $('#prof_city').val());
-                      formData.append('prof_pin_code', $('#prof_pin_code').val());
+                      {% comment %} formData.append('prof_pin_code', $('#prof_pin_code').val()); {% endcomment %}
                       formData.append('DOB', $('#DOB').val());
                       formData.append('DOM', $('#DOM').val());
-                      formData.append('blood_group', $('#blood_group').val()); {% endcomment %}
+                      formData.append('blood_group', $('#blood_group').val());
                       formData.append('residential_address', $('#residential_address').val());
-                      {% comment %} formData.append('residential_area', $('#residential_area').val());
+                      formData.append('residential_area', $('#residential_area').val());
                       formData.append('residential_city', $('#residential_city').val());
-                      formData.append('residential_pin_code', $('#residential_pin_code').val());
+                      {% comment %} formData.append('residential_pin_code', $('#residential_pin_code').val()); {% endcomment %}
                       formData.append('email_id', $('#email_id').val());
-                      formData.append('Phone_number', $('#Phone_number').val());
+                      {% comment %} formData.append('Phone_number', $('#Phone_number').val()); {% endcomment %}
                       formData.append('holding_COP', $('#holding_COP').val());
-                      formData.append('photo', $('#photo')[0].files[0]); {% endcomment %}
+                      formData.append('photo', $('#photo')[0].files[0]);
                       
               
                       $.ajax({
@@ -356,8 +356,8 @@
                           data: formData,
                           processData: false,
                           contentType: false,
-                          success: function(response) {
-                            if (response.success) {
+                          success: function(data) {
+                            if (data.success) {
                               alert('Form update successfully');
                               document.getElementById("edit_ca_form").reset();
                               window.location.href = "/";
