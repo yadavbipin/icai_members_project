@@ -59,18 +59,18 @@
                   <div class="form-row">
                     <div class="value">
                         <div class="row row-space">
-                            {% comment %} <div class="col-1">
+                            <div class="col-1">
                               <div class="name">Date Of Birth</div>
                                 <div class="input-group-desc">
                                   <input  class="input--style-5 datepicker" type="text" id="DOB" name="DOB" value="{{mymodel.DOB}}"/>
                                 </div>
-                            </div> {% endcomment %}
-                            {% comment %} <div class="col-1">
+                            </div> 
+                           <div class="col-1">
                               <div class="name">Date Of Marriage</div>
                                 <div class="input-group-desc">
                                   <input class="input--style-5 datepicker" type="text"  name="DOM" id="DOM"  placeholder="DD-MM-YYYY" value="{{mymodel.DOM}}">
                                 </div>
-                            </div> {% endcomment %}
+                            </div> 
                             <div class="col-1">
                               <div class="name">Blood Group</div>
 
@@ -118,7 +118,7 @@
                                     <div class="col-1">
                                       <div class="name">City</div>
                                         <div class="input-group-desc">
-                                          <input class="input--style-5" type="text"  name="residential_city" id="residential_city" value="{{mymodel.residential_city}}"/>
+                                          <input class="input--style-5" type="text" name="residential_city" id="residential_city" value="{{mymodel.residential_city}}"/>
                                         </div>
                                     </div>
                                     <div class="col-1">
@@ -262,11 +262,11 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-    {% comment %} <script>
+   <script>
     $(function() {
       $( ".datepicker" ).datepicker();
       });
-    </script>  {% endcomment %}
+    </script>  
   
       
     <!--membership number-->
@@ -345,8 +345,8 @@
                       formData.append('prof_area', $('#prof_area').val());
                       formData.append('prof_city', $('#prof_city').val());
                       formData.append('prof_pin_code', $('#prof_pin_code').val());
-                      {% comment %} formData.append('DOB', $('#DOB').val());
-                      formData.append('DOM', $('#DOM').val()); {% endcomment %}
+                      formData.append('DOB', $('#DOB').val());
+                      formData.append('DOM', $('#DOM').val()); 
                       formData.append('blood_group', $('#blood_group').val());
                       formData.append('residential_address', $('#residential_address').val());
                       formData.append('residential_area', $('#residential_area').val());
