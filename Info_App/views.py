@@ -165,7 +165,7 @@ def edit_existing_cainfo(request, ca_id,random_no, mem_no ):
             date_dom = datetime.strptime(Date_of_Marriage, '%m/%d/%Y')
         except ValueError:
             date_dom = datetime.strptime(Date_of_Marriage, '%B %d, %Y')
-            DOM_date_str = date_dom.strftime('%Y-%m-%d')
+        DOM_date_str = date_dom.strftime('%Y-%m-%d')
       
         
 
