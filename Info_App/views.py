@@ -153,19 +153,19 @@ def edit_existing_cainfo(request, ca_id,random_no, mem_no ):
         else:
           new_image = request.FILES.get('photo')
           
-        # # date field convert to yyyy-mm-dd formate
-        # try:
-        #     date_dob = datetime.strptime(Date_Of_Birth, '%m/%d/%Y')
-        # except ValueError:
-        #     date_dob = datetime.strptime(Date_Of_Birth, '%B %d, %Y')
-        # DOB_date_str = date_dob.strftime('%Y-%m-%d')
+        # date field convert to yyyy-mm-dd formate
+        try:
+            date_dob = datetime.strptime(Date_Of_Birth, '%m/%d/%Y')
+        except ValueError:
+            date_dob = datetime.strptime(Date_Of_Birth, '%B %d, %Y')
+        DOB_date_str = date_dob.strftime('%Y-%m-%d')
         
         
-        # try:
-        #     date_dom = datetime.strptime(Date_of_Marriage, '%m/%d/%Y')
-        # except ValueError:
-        #     date_dom = datetime.strptime(Date_of_Marriage, '%B %d, %Y')
-        #     DOM_date_str = date_dom.strftime('%Y-%m-%d')
+        try:
+            date_dom = datetime.strptime(Date_of_Marriage, '%m/%d/%Y')
+        except ValueError:
+            date_dom = datetime.strptime(Date_of_Marriage, '%B %d, %Y')
+            DOM_date_str = date_dom.strftime('%Y-%m-%d')
       
         
 
@@ -196,8 +196,8 @@ def edit_existing_cainfo(request, ca_id,random_no, mem_no ):
         mymodel.residential_city = residential_city
         mymodel.residential_pin_code = residential_pin_code
         mymodel.blood_group = blood_group
-        mymodel.DOB = Date_Of_Birth
-        mymodel.DOM = Date_of_Marriage
+        mymodel.DOB = DOB_date_str
+        mymodel.DOM = DOM_date_str
         mymodel.email_id = email_id
         mymodel.organization = organization
         mymodel.member_firstname = member_firstname
