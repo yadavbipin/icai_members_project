@@ -160,14 +160,13 @@ def edit_existing_cainfo(request, ca_id,random_no, mem_no ):
             date_dob = datetime.strptime(Date_Of_Birth, '%B %d, %Y')
         DOB_date_str = date_dob.strftime('%Y-%m-%d')
         
-        if Date_of_Marriage != "":
-            try:
-                date_dom = datetime.strptime(Date_of_Marriage, '%m/%d/%Y')
-            except ValueError:
-                date_dom = datetime.strptime(Date_of_Marriage, '%B %d, %Y')
+        
+        try:
+            date_dom = datetime.strptime(Date_of_Marriage, '%m/%d/%Y')
+        except ValueError:
+            date_dom = datetime.strptime(Date_of_Marriage, '%B %d, %Y')
             DOM_date_str = date_dom.strftime('%Y-%m-%d')
-        else:
-            DOM_date_str = "None"
+      
         
 
         # if a new image was provided, update the model's image field
