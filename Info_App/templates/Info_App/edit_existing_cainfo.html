@@ -65,7 +65,7 @@
                                   <input  class="input--style-5 datepicker" type="text" id="DOB" name="DOB" value="{{mymodel.DOB}}"/>
                                 </div>
                             </div> 
-                          {% if mymodel.DOM != " " %}
+                          {% if mymodel.DOM != "None" %}
                            <div class="col-1">
                               <div class="name">Date Of Marriage</div>
                                 <div class="input-group-desc">
@@ -76,7 +76,7 @@
                           <div class="col-1">
                             <div class="name">Date Of Marriage</div>
                               <div class="input-group-desc">
-                                <input class="input--style-5 datepicker" type="text"  name="DOM" id="DOM"  placeholder="DD-MM-YYYY" value="00/00/0000">
+                                <input class="input--style-5 datepicker" type="text" name="DOM" id="DOM"  placeholder="DD-MM-YYYY" value="00/00/0000">
                               </div>
                           </div> 
                           {% endif %}

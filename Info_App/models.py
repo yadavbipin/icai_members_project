@@ -20,7 +20,7 @@ class Personal_Info(models.Model):
     residential_pin_code = models.CharField(max_length=100,blank=True, null=True)
     blood_group=models.CharField(max_length=10,blank=True, null=True)
     DOB=models.DateField(blank=True, null=True)
-    DOM=models.DateField(blank=True, null=True)
+    DOM=models.DateField(null=True)
     email_id = models.EmailField(max_length=100,blank=True, null=True)
     organization=models.CharField(max_length=500,blank=True, null=True)
     holding_COP=models.CharField(max_length=100,blank=True, null=True)
