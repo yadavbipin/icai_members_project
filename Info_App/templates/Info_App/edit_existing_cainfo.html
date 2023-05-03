@@ -65,12 +65,21 @@
                                   <input  class="input--style-5 datepicker" type="text" id="DOB" name="DOB" value="{{mymodel.DOB}}"/>
                                 </div>
                             </div> 
+                          {% if mymodel.DOM != " " %}
                            <div class="col-1">
                               <div class="name">Date Of Marriage</div>
                                 <div class="input-group-desc">
                                   <input class="input--style-5 datepicker" type="text"  name="DOM" id="DOM"  placeholder="DD-MM-YYYY" value="{{mymodel.DOM}}">
                                 </div>
                             </div> 
+                          {% else %}
+                          <div class="col-1">
+                            <div class="name">Date Of Marriage</div>
+                              <div class="input-group-desc">
+                                <input class="input--style-5 datepicker" type="text"  name="DOM" id="DOM"  placeholder="DD-MM-YYYY" value="00/00/0000">
+                              </div>
+                          </div> 
+                          {% endif %}
                             <div class="col-1">
                               <div class="name">Blood Group</div>
 
@@ -155,7 +164,7 @@
                                 </div>
                                   <div class="col-1 imagefld">
                                     <div class="input-group-desc" >
-                                        {% if mymodel.new_photo %}  
+                                      {% if mymodel.new_photo %}  
                                         <img src="{{mymodel.new_photo.url}}" alt="{{mymodel.member_firstname}}" height="100px" width="90px">
                                       {% elif mymodel.new_photo == "" and mymodel.photo %}
                                         <img src="{{mymodel.photo}}" alt="{{mymodel.member_firstname}}" height="100px" width="90px">
