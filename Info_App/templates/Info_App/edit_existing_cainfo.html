@@ -62,24 +62,17 @@
                             <div class="col-1">
                               <div class="name">Date Of Birth</div>
                                 <div class="input-group-desc">
-                                  <input  class="input--style-5 datepicker" type="text" id="DOB" name="DOB" value="{{mymodel.DOB}}"/>
+                                  <input  class="input--style-5 datepicker" type="text" id="DOB" name="DOB" value="{{mymodel.DOB|date:"Y-m-d" }}"/>
                                 </div>
                             </div> 
-                          {% if mymodel.DOM != "None" %}
+                         
                            <div class="col-1">
                               <div class="name">Date Of Marriage</div>
                                 <div class="input-group-desc">
-                                  <input class="input--style-5 datepicker" type="text"  name="DOM" id="DOM"  placeholder="DD-MM-YYYY" value="{{mymodel.DOM}}">
+                                  <input class="input--style-5 datepicker" type="text"  name="DOM" id="DOM" value="{{mymodel.DOM|date:"Y-m-d" }}">
                                 </div>
                             </div> 
-                          {% else %}
-                          <div class="col-1">
-                            <div class="name">Date Of Marriage</div>
-                              <div class="input-group-desc">
-                                <input class="input--style-5 datepicker" type="text" name="DOM" id="DOM"  placeholder="DD-MM-YYYY" value="00/00/0000">
-                              </div>
-                          </div> 
-                          {% endif %}
+                          
                             <div class="col-1">
                               <div class="name">Blood Group</div>
 
@@ -325,8 +318,7 @@
               var holding_COP=$('#holding_COP').val();
               var photo=$('#photo').val();
                 
-              if (member_firstname == ''|| member_middlename == '' || member_lastname == '' || organization == ''|| membership_number == ''|| year_of_membership == ''|| prof_address == ''
-              || prof_area == ''|| prof_city == ''|| prof_pin_code == ''||  blood_group == '' || residential_address=='' || residential_area==''
+              if (member_firstname == '' || member_lastname == '' || membership_number == ''|| year_of_membership == ''|| blood_group == '' || residential_address=='' || residential_area==''
               || residential_city == ''|| residential_pin_code == ''|| email_id == ''|| Phone_number == ''|| holding_COP == '') {
                   alert("Please fill all fields")
               }else if(isNaN(Phone_number)){
@@ -337,6 +329,8 @@
                   alert('Please put 10  digit mobile number');
               }else if(prof_pin_code.length!=6 || residential_pin_code.length!=6){
                 alert('Please Enter 6 digit pin code');
+              }else if(organization != '' and ( prof_address == ''|| prof_area == ''|| prof_city == ''|| prof_pin_code == '')){
+                alert('Please enter Professional address ');
               }else{
     
     
