@@ -162,11 +162,9 @@
                                       {% elif mymodel.new_photo == "" and mymodel.photo %}
                                         <img src="{{mymodel.photo}}" alt="{{mymodel.member_firstname}}" height="100px" width="90px">
                                       {% else %}
-                                        <div class="card " style="width;border:none">
-                                          <div class="card-body">
+                                        
                                             <img src="{%static 'Info_App\images\user.png'%}" height="90px" width="80px"  >
-                                          </div>
-                                        </div> 
+                                        
                                       {% endif %}      
                                     </div>
                                   </div>   
