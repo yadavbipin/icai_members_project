@@ -166,10 +166,13 @@ MESSAGE_TAGS = {
 # AWS_DEFAULT_ACL=None
 # AWS_S3_VERITY=True
 # DEFAULT_FILE_STORAGE='storages.backends.s3boto3.S3Boto3Storage'
-# AWS_ACCESS_KEY_ID = 'AKIATAP7VCHDBVENXNJP'
-# AWS_SECRET_ACCESS_KEY = '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'
-# AWS_STORAGE_BUCKET_NAME = 'backenddata'
-# AWS_S3_REGION_NAME = 'ap-south-1'
-# AWS_DEFAULT_ACL='public-read'
 
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
+AWS_ACCESS_KEY_ID = 'AKIATAP7VCHDBVENXNJP'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'backenddata'
+AWS_S3_REGION_NAME = 'ap-south-1'
+AWS_DEFAULT_ACL='public-read'
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
