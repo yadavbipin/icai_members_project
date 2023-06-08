@@ -176,3 +176,5 @@ DEFAULT_FILE_STORAGE='storages.backends.s3boto3.S3Boto3Storage'
 # AWS_DEFAULT_ACL='public-read'
 
 # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+SECURE_CROSS_ORIGIN_OPENER_POLICY = None
