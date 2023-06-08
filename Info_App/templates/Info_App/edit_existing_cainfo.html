@@ -6,10 +6,7 @@
             <div class="card card-5">
                 <div class="card-heading">
                     <h2 class="title">ICAI Members Detail Form</h2>
-                </div>
-
-             
-
+                </div>          
                 <div class="card-body">
                   <form action="" id="edit_ca_form" method="POST" enctype="multipart/form-data" autocomplete="off">{% csrf_token %}
                       
@@ -63,15 +60,15 @@
                     <div class="value">
                         <div class="row row-space">
                             <div class="col-1">
-                              <div class="name">Date Of Birth</div>
+                              <div class="name">Date Of Birth </div>
                                 <div class="input-group-desc">
-                                  <input  class="input--style-5 datepicker" type="text" id="DOB" name="DOB" value="{{mymodel.DOB}}"/>
+                                  <input  class="input--style-5 datepicker" type="text" id="DOB" name="DOB" value="{{mymodel.DOB|date:"Y-m-d" }}"/>
                                 </div>
                             </div>
                             <div class="col-1">
                               <div class="name">Date Of Marriage</div>
                                 <div class="input-group-desc">
-                                  <input class="input--style-5 datepicker" type="text"  name="DOM" id="DOM"  placeholder="DD-MM-YYYY" value="{{mymodel.DOM}}">
+                                  <input class="input--style-5 datepicker" type="text"  name="DOM" id="DOM"  value="{{mymodel.DOM|date:"Y-m-d" }}">
                                 </div>
                             </div>
                             <div class="col-1">
@@ -158,16 +155,12 @@
                                 </div>
                                   <div class="col-1 imagefld">
                                     <div class="input-group-desc" >
-                                        {% if mymodel.new_photo %}  
+                                      {% if mymodel.new_photo %}  
                                         <img src="{{mymodel.new_photo.url}}" alt="{{mymodel.member_firstname}}" height="100px" width="90px">
                                       {% elif mymodel.new_photo == "" and mymodel.photo %}
                                         <img src="{{mymodel.photo}}" alt="{{mymodel.member_firstname}}" height="100px" width="90px">
-                                      {% else %}
-                                        <div class="card " style="width;border:none">
-                                          <div class="card-body">
-                                            <img src="{%static 'Info_App\images\user.png'%}" height="90px" width="80px"  >
-                                          </div>
-                                        </div> 
+                                      {% else %}                      
+                                            <img src="{%static 'Info_App\images\user.png'%}" height="90px" width="80px"  >                                        
                                       {% endif %}      
                                     </div>
                                   </div>   
@@ -319,8 +312,7 @@
               var holding_COP=$('#holding_COP').val();
               var photo=$('#photo').val();
                 
-              if (member_firstname == ''|| member_middlename == '' || member_lastname == '' || organization == ''|| membership_number == ''|| year_of_membership == ''|| prof_address == ''
-              || prof_area == ''|| prof_city == ''|| prof_pin_code == ''|| DOB == ''|| blood_group == '' || residential_address=='' || residential_area==''
+              if (member_firstname == '' || member_lastname == '' || membership_number == ''|| year_of_membership == ''|| DOB == ''|| blood_group == '' || residential_address=='' || residential_area==''
               || residential_city == ''|| residential_pin_code == ''|| email_id == ''|| Phone_number == ''|| holding_COP == '') {
                   alert("Please fill all fields")
               }else if(isNaN(Phone_number)){
@@ -333,6 +325,8 @@
                 alert('Please Enter 6 digit pin code');
               }else if(DOM != '' && DOB > DOM){
                 alert('Please check your date fields ');
+              }else if(organization != '' && ( prof_address == ''|| prof_area == ''|| prof_city == ''|| prof_pin_code == '')){
+                alert('Please enter Professional address ');
               }else{
     
     
@@ -372,7 +366,7 @@
                           success: function(response) {
                               alert('Form update successfully');
                               document.getElementById("edit_ca_form").reset();
-                              window.location.href = "http://127.0.0.1:8000/";
+                              window.location.href = "/";
                           },
                           error: function(xhr, status, error) {
                             alert("Error submitting form: " + error);

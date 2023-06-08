@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-b2zij79pl(p(ia@3&nnhhy_(3rk8%+k^^r9o11qaqbfru)*(-*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['13.233.58.143', 'nagpuricaidirectory.org', 'www.nagpuricaidirectory.org']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -79,21 +79,20 @@ WSGI_APPLICATION = 'Personal_Info.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+
 DATABASES = {
- 'default': {  
-         'ENGINE': 'django.db.backends.mysql',  
-         'NAME': 'icai_members',  
-         'USER': 'root',  
-         'PASSWORD': 'Akshay29!',  
-         'HOST': 'icaimembers.cotbwwzlwsbz.ap-south-1.rds.amazonaws.com',  
-         'PORT': '3306',  
-         'OPTIONS': {  
+    'default': {  
+        'ENGINE': 'django.db.backends.mysql',  
+        'NAME': 'personal_info',  
+        'USER': 'root',  
+        'PASSWORD': '',  
+        'HOST': '127.0.0.1',  
+        'PORT': '3306',  
+        'OPTIONS': {  
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
         }  
-       
-     }      
+    }  
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -156,3 +155,4 @@ MESSAGE_TAGS = {
     messages.SUCCESS: 'alert alert-success',
 
 }
+SECURE_CROSS_ORIGIN_OPENER_POLICY = None

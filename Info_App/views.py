@@ -153,18 +153,23 @@ def edit_existing_cainfo(request, ca_id,random_no, mem_no ):
         else:
           new_image = request.FILES.get('photo')
           
-        # date field convert to yyyy-mm-dd formate
-        try:
-            date_dob = datetime.strptime(Date_Of_Birth, '%m/%d/%Y')
-        except ValueError:
-            date_dob = datetime.strptime(Date_Of_Birth, '%B %d, %Y')
-        DOB_date_str = date_dob.strftime('%Y-%m-%d')
-
-        try:
-            date_dom = datetime.strptime(Date_of_Marriage, '%m/%d/%Y')
-        except ValueError:
-            date_dom = datetime.strptime(Date_of_Marriage, '%B %d, %Y')
-        DOM_date_str = date_dom.strftime('%Y-%m-%d')
+          
+        #date field convert str to yyyy-mm-dd formate
+        date_dob = datetime.strptime(Date_Of_Birth, '%Y-%m-%d')
+        
+        if Date_of_Marriage:
+            date_obj = datetime.strptime(Date_of_Marriage, '%Y-%m-%d')
+        else:
+            date_obj = None
+            
+          
+            
+        print("##############")
+        print(type(date_dob))
+        print(type(date_obj))
+        print("##############")
+        
+        
 
         # if a new image was provided, update the model's image field
         if new_image:
@@ -193,8 +198,8 @@ def edit_existing_cainfo(request, ca_id,random_no, mem_no ):
         mymodel.residential_city = residential_city
         mymodel.residential_pin_code = residential_pin_code
         mymodel.blood_group = blood_group
-        mymodel.DOB = DOB_date_str
-        mymodel.DOM = DOM_date_str
+        mymodel.DOB = date_dob
+        mymodel.DOM = date_obj
         mymodel.email_id = email_id
         mymodel.organization = organization
         mymodel.member_firstname = member_firstname
@@ -203,6 +208,7 @@ def edit_existing_cainfo(request, ca_id,random_no, mem_no ):
         mymodel.save()
 
         return JsonResponse({'success': True})
+        # return render(request,'Info_App/validate_no.html')
     return render(request,'Info_App/edit_existing_cainfo.html',{'mymodel': mymodel})
 
 

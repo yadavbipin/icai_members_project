@@ -20,7 +20,7 @@ class Personal_Info(models.Model):
     residential_pin_code = models.CharField(max_length=100,blank=True, null=True)
     blood_group=models.CharField(max_length=10,blank=True, null=True)
     DOB=models.DateField(blank=True, null=True)
-    DOM=models.DateField(blank=True, null=True)
+    DOM=models.DateField(null=True, blank=True)
     email_id = models.EmailField(max_length=100,blank=True, null=True)
     organization=models.CharField(max_length=500,blank=True, null=True)
     holding_COP=models.CharField(max_length=100,blank=True, null=True)
@@ -54,14 +54,23 @@ class form_submission(models.Model):
     residential_city = models.CharField(max_length=500,blank=True, null=True)
     residential_pin_code = models.CharField(max_length=100,blank=True, null=True)
     blood_group=models.CharField(max_length=10,blank=True, null=True)
-    DOB=models.DateField(max_length=50,blank=True, null=True)
-    DOM=models.DateField(max_length=50,blank=True, null=True)
+    DOB=models.DateField(blank=True, null=True)
+    DOM=models.DateField(blank=True, null=True)
     email_id = models.EmailField(max_length=100,blank=True, null=True)
     organization=models.CharField(max_length=500,blank=True, null=True)
     holding_COP = models.CharField(max_length = 50)
    
-    # created_at = models.DateTimeField(auto_now_add=True,null=True, blank=True)
 
     def __str__(self):
         return self.member_firstname
 
+
+
+
+class mem_photo(models.Model):
+    id=models.AutoField(primary_key=True)
+    membership_number=models.CharField(max_length=100,blank=True, null=True)
+    photo=models.ImageField(default='',blank=True, null=True)  
+   
+    def __str__(self):
+        return self.membership_number
