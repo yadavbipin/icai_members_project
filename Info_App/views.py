@@ -153,6 +153,7 @@ def edit_existing_cainfo(request, ca_id,random_no, mem_no ):
         else:
           new_image = request.FILES.get('photo')
           
+<<<<<<< HEAD
           
         #date field convert str to yyyy-mm-dd formate
         date_dob = datetime.strptime(Date_Of_Birth, '%Y-%m-%d')
@@ -170,6 +171,32 @@ def edit_existing_cainfo(request, ca_id,random_no, mem_no ):
         print("##############")
         
         
+=======
+        # date field convert String to yyyy-mm-dd formate
+        date_dob = datetime.strptime(Date_Of_Birth, '%Y-%m-%d')
+        
+        if Date_of_Marriage:
+            date_format = "%Y-%m-%d"
+            date_dom = datetime.strptime(Date_of_Marriage, date_format)
+        else:
+            date_dom = None
+            
+            
+        # try:
+        #     date_dob = datetime.strptime(Date_Of_Birth, '%m/%d/%Y')
+        # except ValueError:
+        #     date_dob = datetime.strptime(Date_Of_Birth, '%B %d, %Y')
+        # DOB_date_str = date_dob.strftime('%Y-%m-%d')
+        
+        
+        # try:
+        #     date_dom = datetime.strptime(Date_of_Marriage, '%m/%d/%Y')
+        # except ValueError:
+        #     date_dom = datetime.strptime(Date_of_Marriage, '%B %d, %Y')
+        # DOM_date_str = date_dom.strftime('%Y-%m-%d')
+      
+        
+>>>>>>> 85104c5ddea32896ff7f24bcd9864776af136463
 
         # if a new image was provided, update the model's image field
         if new_image:
@@ -199,7 +226,11 @@ def edit_existing_cainfo(request, ca_id,random_no, mem_no ):
         mymodel.residential_pin_code = residential_pin_code
         mymodel.blood_group = blood_group
         mymodel.DOB = date_dob
+<<<<<<< HEAD
         mymodel.DOM = date_obj
+=======
+        mymodel.DOM = date_dom
+>>>>>>> 85104c5ddea32896ff7f24bcd9864776af136463
         mymodel.email_id = email_id
         mymodel.organization = organization
         mymodel.member_firstname = member_firstname
