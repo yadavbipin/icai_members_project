@@ -30,6 +30,7 @@ SECRET_KEY = 'django-insecure-b2zij79pl(p(ia@3&nnhhy_(3rk8%+k^^r9o11qaqbfru)*(-*
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+WSGI_APPLICATION = 'icai-members.wsgi.application'
 
 
 # Application definition

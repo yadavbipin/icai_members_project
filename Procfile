@@ -1,1 +1,1 @@
-web gunicorn icai_members.wsgi:application --log-file -
+web: gunicorn -w 3 -b 0.0.0.0:8000 icai-members.wsgi:application
