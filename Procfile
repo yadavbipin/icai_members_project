@@ -1,0 +1,1 @@
+web gunicorn icai_members.wsgi:application --log-file -
