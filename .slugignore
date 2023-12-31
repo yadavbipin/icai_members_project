@@ -1,0 +1,14 @@
+.git
+.vscode
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.idea
+.env
+db.sqlite3
+staticfiles/
+media/
+*.log
+.coverage
+db.sqlite3
