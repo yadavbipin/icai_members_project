@@ -1,1 +1,0 @@
-web: gunicorn Personal_Info.wsgi

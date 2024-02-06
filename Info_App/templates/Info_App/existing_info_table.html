@@ -27,33 +27,34 @@ body{
         <div class="row ">
           <div class="col-md-12 col-lg-12 col-12 col-sm-12 text-center mb-2 mt-4">
             <h2 class="heading-section" style="text-decoration:underline">Your Submitted Data</h2>
+
           </div>
+
         </div>
         <div class="row" style="border:1px #251749 solid">          
             <div class="row p-1 " style="background-color:#251749;color:white;margin-left:0.2px">
               <div class="col-1 col-sm-1 col-lg-1 col-md-1">
-                <h6>1</h6>
+
               </div>
               <div class="col-11 col-sm-11 col-lg-11 col-md-11">
                 <h6>CA.</span>{{fetch_info.member_lastname}} {{fetch_info.member_firstname}} {{fetch_info.member_middlename}}</h6>
               </div>
             </div>   
           <div class="row informations">
+
+
           <div class="col-12 col-sm-12 col-lg-2 col-md-2" style="text-align:center">
-            <div class="img-card p-1"  >                                   
-              {% if fetch_info.new_photo %}  
-                <img src="{{fetch_info.new_photo.url}}" alt="{{fetch_info.member_firstname}}" height="130px" width="110px" >
-              {% elif fetch_info.new_photo == "" and fetch_info.photo %}
-                <img src="{{fetch_info.photo}}" alt="{{fetch_info.member_firstname}}" height="130px" width="110px" >
-              {% else %}
-              <div class="card " style="width;border:none">
-                <div class="card-body">
-                  <img src="{%static 'Info_App\images\user.png'%}" height="130px" width="110px"  >
-                </div>
-              </div> 
-              {% endif %}
+            <div class="img-card p-1"  >
+            {% if fetch_info %}
+                    {% if fetch_info.new_photo_base64 %}
+                        <img src="data:image/jpeg;base64,{{ fetch_info.new_photo_base64 }}" alt="{{ fetch_info.member_firstname }}" height="130px" width="110px">
+                    {% elif fetch_info.photo_base64 %}
+
+                        <img src="data:image/jpeg;base64,{{ fetch_info.photo_base64 }}" alt="{{ fetch_info.member_firstname }}" height="130px" width="110px">
+                    {% endif %}
+                {% endif %}
             </div>
-          </div> 
+            </div>
           <div class="col-12 col-sm-12 col-lg-5 col-md-5 " >
                 <div class="row">
                   <div class="col-3 col-sm-3 col-lg-3 col-md-3">
@@ -172,8 +173,11 @@ body{
          
         </div>
         <div>
+
           <a href="{%url 'Info_App:validate_no' %}" id="edit_info" class="btn btn-light" type="submit"  style="margin-top:30px;padding-left:30px;padding-right:30px;padding-top:10px;padding-bottom:10px;font-size:20px" ><b>Back </b></a>
-          <a href="{%url 'Info_App:edit_existing_cainfo' fetch_info.id 647809 fetch_info.membership_number %}" id="edit_info" class="btn " type="submit"  style="margin-top:30px;padding-left:30px;padding-right:30px;padding-top:10px;padding-bottom:10px;font-size:20px;margin-right:25px;background-color:#4272D7;color:white" ><b>Edit </b></a>
+          <!--<a href="{%url 'Info_App:edit_existing_cainfo' fetch_info.id 647809 fetch_info.membership_number %}" id="edit_info" class="btn " type="submit"  style="margin-top:30px;padding-left:30px;padding-right:30px;padding-top:10px;padding-bottom:10px;font-size:20px;margin-right:25px;background-color:#4272D7;color:white" ><b>Edit </b></a>-->
+            <a href="{% url 'Info_App:edit_existing_cainfo' fetch_info.id 647809 fetch_info.membership_number %}" id="edit_info" class="btn" style="margin-top:30px;padding-left:30px;padding-right:30px;padding-top:10px;padding-bottom:10px;font-size:20px;margin-right:25px;background-color:#4272D7;color:white"><b>Edit</b></a>
+
       </div>
 
       </div>

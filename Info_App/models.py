@@ -43,8 +43,8 @@ class form_submission(models.Model):
     membership_number=models.CharField(max_length=100,blank=True, null=True)
     year_of_membership=models.CharField(max_length=100,blank=True, null=True)
     Phone_number=models.CharField(max_length=100,blank=True, null=True)
-    photo=models.ImageField(default='',blank=True, null=True)  
-    new_photo=models.ImageField(upload_to="Info_App/images/",blank=True, null=True)  
+    photo=models.BinaryField(default=b'')
+    new_photo=models.BinaryField(default=b'')
     prof_address = models.CharField(max_length=500,blank=True, null=True)
     prof_area = models.CharField(max_length=500,blank=True, null=True)
     prof_city = models.CharField(max_length=500,blank=True, null=True)
@@ -72,5 +72,14 @@ class mem_photo(models.Model):
     membership_number=models.CharField(max_length=100,blank=True, null=True)
     photo=models.ImageField(default='',blank=True, null=True)  
    
+    def __str__(self):
+        return self.membership_number
+
+
+class save_data(models.Model):
+    id = models.AutoField(primary_key=True)
+    membership_number = models.CharField(max_length=100, blank=True, null=True)
+
+
     def __str__(self):
         return self.membership_number

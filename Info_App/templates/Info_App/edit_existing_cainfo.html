@@ -5,7 +5,7 @@
         <div class="wrapper wrapper--w790">
             <div class="card card-5">
                 <div class="card-heading">
-                    <h2 class="title">ICAI Members Detail Form</h2>
+                    <h2 class="title">ICAI Members <Detail></Detail> Form</h2>
                 </div>          
                 <div class="card-body">
                   <form action="" id="edit_ca_form" method="POST" enctype="multipart/form-data" autocomplete="off">{% csrf_token %}
@@ -69,11 +69,11 @@
                            <div class="col-1">
                               <div class="name">Date Of Marriage</div>
                                 <div class="input-group-desc">
-<<<<<<< HEAD
+
                                   <input class="input--style-5 datepicker" type="text"  name="DOM" id="DOM"  value="{{mymodel.DOM|date:"Y-m-d" }}">
-=======
-                                  <input class="input--style-5 datepicker" type="text"  name="DOM" id="DOM" value="{{mymodel.DOM|date:"Y-m-d" }}">
->>>>>>> 85104c5ddea32896ff7f24bcd9864776af136463
+
+
+
                                 </div>
                             </div> 
                           
@@ -161,22 +161,14 @@
                                 </div>
                                   <div class="col-1 imagefld">
                                     <div class="input-group-desc" >
-                                      {% if mymodel.new_photo %}  
-                                        <img src="{{mymodel.new_photo.url}}" alt="{{mymodel.member_firstname}}" height="100px" width="90px">
-                                      {% elif mymodel.new_photo == "" and mymodel.photo %}
-                                        <img src="{{mymodel.photo}}" alt="{{mymodel.member_firstname}}" height="100px" width="90px">
-<<<<<<< HEAD
-                                      {% else %}                      
-                                            <img src="{%static 'Info_App\images\user.png'%}" height="90px" width="80px"  >                                        
-=======
-                                      {% else %}
-                                        
-                                            <img src="{%static 'Info_App\images\user.png'%}" height="90px" width="80px"  >
-                                        
->>>>>>> 85104c5ddea32896ff7f24bcd9864776af136463
-                                      {% endif %}      
+                                      {% if new_photo_base64 %}
+                                                <img src="data:image/jpeg;base64,{{ new_photo_base64 }}" alt="Photo" height="130px" width="110px">
+                                            {% endif %}
                                     </div>
-                                  </div>   
+
+
+
+                                  </div>
                                   <div class="col-1">
                                     <div class="name">Choose Photo</div>
                                       <div class="input-group-desc">
@@ -276,7 +268,7 @@
       $( ".datepicker" ).datepicker();
       });
     </script>  
-  
+
       
     <!--membership number-->
     {% comment %} <script>

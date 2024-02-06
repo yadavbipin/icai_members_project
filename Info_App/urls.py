@@ -10,4 +10,5 @@ urlpatterns = [
     path('',views.validate_no,name="validate_no"),
     path('edit_existing_cainfo/<int:ca_id>.<int:random_no>.<int:mem_no>',views.edit_existing_cainfo,name="edit_existing_cainfo"),
     path('existing_info_table',views.existing_info_table,name="existing_info_table"),
+
 ]

@@ -444,7 +444,8 @@
         var email_id=$('#email_id').val();
         var Phone_number=$('#Phone_number').val();
         var holding_COP=$('#holding_COP').val();
-        
+
+
         if (member_firstname == ''|| member_middlename == '' || member_lastname == '' || organization == ''|| membership_number == ''|| year_of_membership == ''|| prof_address == ''
                     || prof_area == ''|| prof_city == ''|| prof_pin_code == ''|| DOB == ''|| blood_group == '' || residential_address=='' || residential_area==''
                     || residential_city == ''|| residential_pin_code == ''|| email_id == ''|| Phone_number == ''|| holding_COP == ''|| photo == '') {
@@ -537,7 +538,7 @@
                     var Phone_number=$('#Phone_number').val();
                     var holding_COP=$('#holding_COP').val();
                     var photo=$('#photo').val();
-                    
+
                     var csrftoken = Cookies.get('csrftoken');
                     var formData = new FormData();
                     formData.append('csrfmiddlewaretoken', csrftoken);
@@ -562,7 +563,7 @@
                     formData.append('Phone_number', $('#Phone_number').val());
                     formData.append('holding_COP', $('#holding_COP').val());
                     formData.append('photo', $('#photo')[0].files[0]);
-                            
+
                     $.ajax({
                             url: '{% url "Info_App:submit_cainfo" %}',
                             type: 'POST',
@@ -579,10 +580,13 @@
                             error: function(xhr, status, error) {
                                 alert("Error submitting form: " + error);
                             }
-                          });  
+                          });
               });
-               
+
       }); /*end ready function*/
+
+
+
     </script>
     
 

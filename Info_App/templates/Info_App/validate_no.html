@@ -18,6 +18,7 @@
                                 </div>
                     {% endfor %}
                   </div>
+                    <p id="message"></p>
                 </div>
 
                 <div class="card-body">
@@ -26,7 +27,7 @@
                             <div class="value">
                               <div class="name">Membership Number</div>
                               <div class="input-group">
-                                    <input class="input--style-5" type="number" name="membership_num" value="">
+                                    <input class="input--style-5" type="number" id  = "membershipNumber" name="membership_num" value="">
                                   </div>
                             </div>
                         </div>
@@ -64,13 +65,15 @@
                         
                         
                         <div>
-                            <button id="submit_no" class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
+                            <button id="submit_no"  class="btn btn--radius-2 btn--blue" type="submit" onclick="checkInputLength()">Submit</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+
 
     <!-- Jquery JS-->
     <script src="{% static 'Info_App/form_vendor/jquery/jquery.min.js' %}"></script>
