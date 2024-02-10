@@ -1,8 +1,10 @@
 import base64
 from io import BytesIO
 from math import ceil
+
+from django.contrib.auth import logout
 from django.shortcuts import render,redirect
-from .models import Personal_Info, form_submission, save_data
+from .models import Personal_Info, form_submission, save_data, mem_photo
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponse
 from django.template.loader import get_template
@@ -65,10 +67,10 @@ def validate_no(request):
             messages.error(request, "Please add 0 if membership number is 5 digit ex 01234")
             return redirect('Info_App:validate_no')
 
-        print(membership_num)
+
         # Check if membership number exists
         existing_info = form_submission.objects.filter(membership_number=membership_num)
-        print(existing_info)
+
         if existing_info.exists():
             fetch_info = existing_info.first()
             if yr_of_membership != fetch_info.year_of_membership or Birth_date != str(fetch_info.DOB):
@@ -76,7 +78,14 @@ def validate_no(request):
                                "Membership Number already exists. Please enter correct Membership Year and/or DOB to View/Edit your details.")
                 return redirect('Info_App:validate_no')
             else:
-                if fetch_info.new_photo:
+                if fetch_info and not fetch_info.new_photo:
+
+                    mem_photo_entry = mem_photo.objects.filter(membership_number=membership_num).first()
+
+                    if mem_photo_entry and mem_photo_entry.photo:
+                        fetch_info.photo = mem_photo_entry.photo
+
+                elif fetch_info.new_photo:
                     new_photo_base64 = base64.b64encode(fetch_info.new_photo).decode('utf-8')
                     fetch_info.new_photo_base64 = new_photo_base64
                 elif fetch_info.photo:
@@ -248,20 +257,23 @@ def edit_existing_cainfo(request, ca_id,random_no, mem_no ):
         # Add a leading zero by concatenating '0' with the membership number string
         membership_number_str = '0' + membership_number_str
 
-
+    new_photo_base64 = None
     try:
-        mymodel = form_submission.objects.get(id=ca_id, membership_number=membership_number_str)
 
-        new_photo_base64 = base64.b64encode(mymodel.new_photo).decode('utf-8')
+        mymodel = form_submission.objects.get(id=ca_id, membership_number=membership_number_str)
+        if mymodel and not mymodel.new_photo:
+            mem_photo_entry = mem_photo.objects.filter(membership_number=membership_number_str).first()
+            if mem_photo_entry and mem_photo_entry.photo:
+                mymodel.photo = mem_photo_entry.photo
+        else:
+            new_photo_base64 = base64.b64encode(mymodel.new_photo).decode('utf-8')
 
     except form_submission.DoesNotExist:
         raise Http404("The requested CA info does not exist.")
 
-
-
     if request.method == 'POST':
 
-
+        mymodel = form_submission.objects.get(id=ca_id, membership_number=membership_number_str)
 
         # get the new image from the request
         member_firstname = request.POST.get('member_firstname')
@@ -350,7 +362,6 @@ def edit_existing_cainfo(request, ca_id,random_no, mem_no ):
         return render(request,'Info_App/existing_info_table.html',{'fetch_info':mymodel})
         # return render(request,'Info_App/validate_no.html')
     return render(request, 'Info_App/edit_existing_cainfo.html', {'mymodel': mymodel, 'new_photo_base64': new_photo_base64})
-
 
 
 
